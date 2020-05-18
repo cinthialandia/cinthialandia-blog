@@ -16,18 +16,20 @@ export default function Layout({ children }) {
     `
   )
   return (
-    <div
-      css={css`
-        margin: 0 auto;
-        max-width: 700px;
-        padding: ${rhythm(2)};
-        padding-top: ${rhythm(1.5)};
-      `}
-    >
-      <Link to={`/`}>{data.site.siteMetadata.title}</Link>
-      <Link to={`/blog/`}>Blog</Link>
-      <Link to={`/portfolio/`}>Portfolio</Link>
-      {children}
-    </div>
+    <>
+      <div
+        css={css`
+          margin: 0 auto;
+          max-width: 700px;
+          padding: ${rhythm(2)};
+          padding-top: ${rhythm(1.5)};
+        `}
+      >
+        <Link to={`/`}>{data.site.siteMetadata.title}</Link>
+        <Link to={`/blog/`}>Blog</Link>
+        <Link to={`/portfolio/`}>Portfolio</Link>
+        {children}
+      </div>
+    </>
   )
 }
