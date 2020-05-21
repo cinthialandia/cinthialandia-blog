@@ -20,14 +20,45 @@ export default function Layout({ children }) {
       <div
         css={css`
           margin: 0 auto;
-          max-width: 700px;
+          max-width: 900px;
           padding: ${rhythm(2)};
           padding-top: ${rhythm(1.5)};
         `}
       >
-        <Link to={`/`}>{data.site.siteMetadata.title}</Link>
-        <Link to={`/blog/`}>Blog</Link>
-        <Link to={`/portfolio/`}>Portfolio</Link>
+        <header
+          css={css`
+            display: flex;
+            justify-content: space-between;
+          `}
+        >
+          <Link
+            to={`/`}
+            css={css`
+              text-decoration: none;
+              background-image: none;
+            `}
+          >
+            <h3
+              css={css`
+                margin: 0;
+              `}
+            >
+              {data.site.siteMetadata.title}
+            </h3>
+          </Link>
+          <div>
+            <Link
+              to={`/blog/`}
+              css={css`
+                margin-right: 10px;
+              `}
+            >
+              Blog
+            </Link>
+            <Link to={`/portfolio/`}>Portfolio</Link>
+          </div>
+        </header>
+
         {children}
       </div>
     </>
