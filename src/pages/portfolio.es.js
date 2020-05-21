@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 
 export default function Portfolio() {
   return (
-    <Layout>
+    <Layout lang="es">
       <h1>Portfolio</h1>
     </Layout>
   )

@@ -3,7 +3,10 @@ import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 
-export default function Layout({ children }) {
+const LangSelect = ({ lang }) =>
+  lang === "es" ? <Link to={`/`}>en</Link> : <Link to={`/es/`}>es</Link>
+
+export default function Layout({ children, lang }) {
   const data = useStaticQuery(
     graphql`
       query {
@@ -15,6 +18,11 @@ export default function Layout({ children }) {
       }
     `
   )
+
+  const prefixUrl = url => {
+    return lang ? `/${lang}${url}` : url
+  }
+
   return (
     <>
       <div
@@ -32,7 +40,7 @@ export default function Layout({ children }) {
           `}
         >
           <Link
-            to={`/`}
+            to={prefixUrl(`/`)}
             css={css`
               text-decoration: none;
               background-image: none;
@@ -48,14 +56,22 @@ export default function Layout({ children }) {
           </Link>
           <div>
             <Link
-              to={`/blog/`}
+              to={prefixUrl(`/blog/`)}
               css={css`
                 margin-right: 10px;
               `}
             >
               Blog
             </Link>
-            <Link to={`/portfolio/`}>Portfolio</Link>
+            <Link
+              to={prefixUrl(`/portfolio/`)}
+              css={css`
+                margin-right: 20px;
+              `}
+            >
+              Portfolio
+            </Link>
+            <LangSelect lang={lang} />
           </div>
         </header>
 

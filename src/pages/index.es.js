@@ -5,10 +5,10 @@ import Post from "../components/Post"
 
 export default function Home({ data }) {
   return (
-    <Layout>
+    <Layout lang="es">
       <div>
-        <h1>Latest posts</h1>
-        <h4>{data.allMarkdownRemark.totalCount} posts</h4>
+        <h1>Últimas publicaciones</h1>
+        <h4>{data.allMarkdownRemark.totalCount} artículos</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <Post key={node.id} node={node} />
         ))}
@@ -21,7 +21,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { langKey: { eq: "en" } } }
+      filter: { fields: { langKey: { eq: "es" } } }
     ) {
       totalCount
       edges {
