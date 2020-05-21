@@ -20,7 +20,7 @@ export default function Layout({ children, lang }) {
   )
 
   const prefixUrl = url => {
-    return lang ? `/${lang}${url}` : url
+    return lang && lang !== "en" ? `/${lang}${url}` : url
   }
 
   return (
