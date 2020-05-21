@@ -5,7 +5,7 @@ date: "2020-05-18"
 
 ## React components 
 
-Components are like JavaScript functions, they accept inputs (called inputs) and return elements that described what should appear on the screen. 
+Components are like JavaScript functions, they accept inputs (called props) and return elements that described what should appear on the screen. 
 
 ## Functional components 
 
@@ -42,7 +42,10 @@ class SayHello extends React.Component {
 To manage the state of the component you will use hooks, the component will refresh if the state change. 
 
 ```react
-const [count, setCount] = useState(0);
+const MyCount = () => {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>Click-me</button>;
+};
 ```
 
 
@@ -52,7 +55,19 @@ const [count, setCount] = useState(0);
 `setState()` schedules an update to a component’s state object. When state changes, the component responds by re-rendering.
 
 ```react
-let newCopiedArray = this.state.todos.slice();
+class MyCount extends React.Component {
+  state = {
+    count: 0,
+  };
+  render() {
+    return (
+      <button onClick={() => this.setState({ count: count + 1 })}>
+        Click-me
+      </button>
+    );
+  }
+}
+
 ```
 
 
