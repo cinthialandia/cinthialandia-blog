@@ -10,7 +10,27 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-code-buttons`,
+            options: {
+              buttonText: "Copy",
+              svgIcon: "",
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: ">",
+              showLineNumbers: true,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
