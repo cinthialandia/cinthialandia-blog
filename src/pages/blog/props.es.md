@@ -5,15 +5,15 @@ date: "2020-05-21"
 
 ## ¿Que son props en React?
 
-Son un patrón para compartir información entre un componente padre y un componente hijo, donde el componente padre setea atributos y los envía al componente hijo como un objeto. Es importante saber que esto trabaja de manera unilateral es decir, que la información solo se comparte desde padre hacía no y no al revés.
+Son un patrón para compartir información entre un componente padre y un componente hijo, donde el componente padre setea atributos y los envía al componente hijo como un objeto. Es importante saber que esto trabaja de manera unilateral es decir, que la información solo se comparte desde padre hacía el hijo y no al revés.
 
 ## ¿Como usar props?
 
-Como dijimos anteriormente, los props son usados por componentes de React de la misma manera, pero la sintaxis varía un poco de acuerdo al componente que estés utilizando.
+Los props son usados por componentes de React, pero la sintaxis de los mismos varían dependiendo del componente utilizado.
 
 ### Props componentes de clase
 
-Los componentes de clases reciben propiedades como propiedades de objetos llamados props y para acceder a ellos deberás usar la sintaxis `this.props`
+Los componentes de clases reciben props como propiedades de la instancia del componente y se puede acceder a ellos usando la sintaxis `this.props`.
 
 ```jsx
 import React, { Component } from "react"
@@ -39,11 +39,11 @@ class App extends Component {
 render(<App />, document.getElementById("root"))
 ```
 
-> En este ejemplo, tenemos el componente App (padre) que está renderizando el componente content (hijo). El componente envía esas propiedades al componente exacto que lo estará utilizando. Para tener acceso al mismo es necesario que escriba la sintaxis “this”.
+> En este ejemplo, el componente App (padre), esta renderizando el componente content (hijo). App envía información mediante `props` declarados en el componente content mediante la sintaxis `this`, de esta manera dentro del componente content tenemos acceso a la información.
 
 ### Props en componentes funcionales
 
-El componente funcional recibe props como el primer parámetro de la función.
+El componente funcional recibe `props` como el primer parámetro de la función.
 
 ```jsx
 import React, { Component } from "react"
@@ -63,13 +63,13 @@ const App = () => {
 render(<App />, document.getElementById("root"))
 ```
 
-> En este ejemplo, el componente App (padre) envía props al componente content (hijo) y este recibe estos como parámetros de la función, en este caso, estamos haciendo una deconstrucción y tomando los valores que necesitamos.
+> En este ejemplo, el componente App (padre) envía props al componente content (hijo) y son recibidos como parámetros de la función, en este caso, estamos haciendo una deconstrucción y tomando solos los valores que necesitamos.
 >
-> Nota: Los props no se pueden modificar, esto significa que la información que se envia está en estado de solo lectura.
+> Nota: Los props no se pueden modificar, esto significa que la información que se envia está en estado de lectura.
 
 ## Props y spread sintaxis.
 
-Cuando necesitamos pasar más de un atributo a otro componente, en esos casos utilizamos el operador de javaScript `spread...`
+Cuando necesitamos pasar más de un atributo a otro componente, utilizamos el operador de javaScript `spread...`
 
 ```jsx
 import React, { Component, useState } from "react"
@@ -100,7 +100,7 @@ render(
 )
 ```
 
-> En este ejemplo, nuestro componente App (padre) está recibiendo props desde otro componente, y en esta caso estamos haciendo una deconstrucción para obtener algunos de los valores del objeto, para este caso utilizamos la sintaxis spread y salvamos en una variable los valores restantes del objeto, los cuales van a ser usados por el componente content (hijo)
+> En este ejemplo, nuestro componente App (padre) está recibiendo props desde otro componente, y se realiza una deconstrucción para obtener algunos de los valores del objeto, En este caso utilizamos la sintaxis spread y guardamos en una variable los valores restantes del objeto.
 
 ```jsx
 import React, { Component, useState } from "react"
@@ -162,7 +162,7 @@ export default App
 render(<App />, document.getElementById("root"))
 ```
 
-> En este caso, podemos observar que el componente App (padre) declaro un objeto con algunos valores que serán enviados como props al componente content (hijo)
+> El componente App (padre) declaro un objeto con algunos valores que serán enviados como props al componente content (hijo)
 
 ## Props con valor por defecto
 
@@ -185,9 +185,9 @@ const App = () => <MyComponent />
 render(<App />, document.getElementById("root"))
 ```
 
-> En este ejemplo, tenemos un componente funcional, donde recibe un nombre como props, en este caso hicimos una deconstrucción para obtener el valor y setearlo como valor por defecto en caso de que el componente `MyComponent` (hijo) no está recibiendo ningún prop del componente App (padre), en este caso se setea “Gerardo”, como el valor por defecto.
+> En este ejemplo, tenemos un componente funcional, donde recibe un nombre como props, hacemos una deconstrucción para obtener el valor y setearlo como valor por defecto. `MyComponent` (hijo) no está recibiendo ningún prop del componente App (padre), en este caso se setea “Gerardo”, como el valor por defecto.
 >
-> Nota: En este caso, estamos utilizando typescript, así que para evitar conflictos con la herramienta, se deberá realizar la interface y setear en el valor del key “?”, con esto estamos diciendo que nombre no es obligatorio, asi que la herramienta no demandará de manera obligatorio un valor.
+> Nota: Estamos utilizando typescript, así que para evitar conflictos con la herramienta, se deberá realizar la interface y setear en el valor del key el signo “?”, con esto estamos declarando que name no es obligatorio, asi que la herramienta no demandará de manera obligatorio un valor.
 
 ```tsx
 import React, { Component } from "react"

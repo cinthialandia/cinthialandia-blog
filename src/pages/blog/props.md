@@ -13,7 +13,7 @@ As we said previously, props are used for components in React in the same way, b
 
 ### Props in class components
 
-The class component receive props as a properties' object called props and you can access them using the syntax `this.props`
+The class component receive props as a properties of the component instance called `props`, and you can access them using the syntax `this.props`
 
 ```jsx
 import React, { Component } from "react"
