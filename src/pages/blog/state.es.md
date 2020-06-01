@@ -1,5 +1,5 @@
 ---
-title: Estados (state)
+title: Estado (state)
 
 date: "2020-05-29"
 ---
@@ -44,7 +44,7 @@ class MyComponent extends React.Component {
 render(<MyComponent />, document.getElementById("root"))
 ```
 
-En este ejemplo, tenemos un componente que renderiza un botón y un <h1>, con información del estado, la construcción del mismo es de la siguiente manera, primero declaramos el estado con la sintaxis this.state y declaramos sus valores. Para poder hacer uso de ese estado, usamos la sintaxis this.state.name para traer la información del componente y poder mostrarla en pantalla, como podemos ver en el `<h1>`.Finalmente, para realizar actualizaciones del estado, en el componente podemos observar una función handleClick en donde declaramos, el nuevo valor de nuestro estado usando la sintaxis this.setState, y actualizando el objeto estado.dando como resultado, que cada vez que se dé click en el botón se muestre la información actual del estado, en este caso new state!
+En este ejemplo, tenemos un componente que renderiza un botón y un `<h1>`, con información del estado, la construcción del mismo es de la siguiente manera, primero declaramos el estado con la sintaxis this.state y declaramos sus valores. Para poder hacer uso de ese estado, usamos la sintaxis this.state.name para traer la información del componente y poder mostrarla en pantalla, como podemos ver en el `<h1>`.Finalmente, para realizar actualizaciones del estado, en el componente podemos observar una función handleClick en donde declaramos, el nuevo valor de nuestro estado usando la sintaxis this.setState, y actualizando el objeto estado.dando como resultado, que cada vez que se dé click en el botón se muestre la información actual del estado, en este caso new state!
 
 ```jsx
 import React, { Component } from "react"

@@ -1,5 +1,5 @@
 ---
-title: States
+title: State
 
 date: "2020-05-29"
 ---
