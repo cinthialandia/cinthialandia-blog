@@ -39,7 +39,7 @@ class App extends Component {
 render(<App />, document.getElementById("root"))
 ```
 
-> In this example, we have the app component (father) which is rendering the content component (children). The component sends those props to the exact component that will be used. To access them, it's necessary to write the "this" word.
+In this example, we have the app component (father) which is rendering the content component (children). The component sends those props to the exact component that will be used. To access them, it's necessary to write the "this" word.
 
 ### Props in functional components
 
@@ -63,9 +63,9 @@ const App = () => {
 render(<App />, document.getElementById("root"))
 ```
 
-> In the example, the app component (father) sends props to content components (children) and they are received as parameters from the function, in this case, we are doing deconstruction and taking the values that we need.
+In the example, the app component (father) sends props to content components (children) and they are received as parameters from the function, in this case, we are doing deconstruction and taking the values that we need.
 
-Note: Props can't modify, it means the information that you send is in a read-only state.
+> Note: Props can't modify, it means the information that you send is in a read-only state.
 
 ## Props and spread syntax
 
@@ -100,7 +100,7 @@ render(
 )
 ```
 
-> In this example, our App component (father) is receiving props from another component and this case we made a deconstruction to obtain some values from the object and we used spread to save the others objects' values, which are going to be used in the content component (children)
+In this example, our App component (father) is receiving props from another component and this case we made a deconstruction to obtain some values from the object and we used spread to save the others objects' values, which are going to be used in the content component (children)
 
 ```jsx
 import React, { Component, useState } from "react"
@@ -131,7 +131,7 @@ export default App
 render(<App />, document.getElementById("root"))
 ```
 
-> In this example we are using the state, the App component (father) pass to content component (children), the state as a props (object).
+In this example we are using the state, the App component (father) pass to content component (children), the state as a props (object).
 
 ```jsx
 import React, { Component, useState } from "react"
@@ -162,7 +162,7 @@ export default App
 render(<App />, document.getElementById("root"))
 ```
 
-> In this example, we can see the App component (father), declare an object with some values which are passed as a props to content component (children).
+In this example, we can see the App component (father), declare an object with some values which are passed as a props to content component (children).
 
 ## Props with a default value
 
@@ -185,8 +185,8 @@ const App = () => <MyComponent />
 render(<App />, document.getElementById("root"))
 ```
 
-> In this example, we have a functional component where received a name as a props, in this case, we made a deconstruction to get the value and set their default value, in this case, "Gerardo". `MyComponent` (children) its no receiving nothing from the App component (father), so the value for default will be "Gerardo".
->
+In this example, we have a functional component where received a name as a props, in this case, we made a deconstruction to get the value and set their default value, in this case, "Gerardo". `MyComponent` (children) its no receiving nothing from the App component (father), so the value for default will be "Gerardo".
+
 > Note: In this case, we are using typescript, so if we don't want to have any problem, we should make de interface normally and set a `?` in the key of the value, with this we are saying, names value is no obligatory.
 
 ```tsx
@@ -206,4 +206,4 @@ const App = () => <MyComponent />
 render(<App />, document.getElementById("root"))
 ```
 
-> In this example, we have an App component (father) and is not sending any props so we use the `default props` syntax and declare the name and its value as a default.
+In this example, we have an App component (father) and is not sending any props so we use the `default props` syntax and declare the name and its value as a default.

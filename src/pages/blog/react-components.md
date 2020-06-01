@@ -109,9 +109,9 @@ When using a function component, we'll need the `useState` and `useEffect` hooks
 
 React components go through lifecycles of events, the most common on class components are:
 
-- **Mounting**
-- **Update**
-- **Unmount**
+- `Mounting`
+- `Update`
+- `Unmount`
 
 ### Which one do I prefer?
 
