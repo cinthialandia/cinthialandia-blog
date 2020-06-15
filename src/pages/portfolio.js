@@ -8,7 +8,10 @@ const Repository = ({ repository }) => {
     <>
       <div className="project">
         <div className="card-container">
-          <img className="photo" src={repository.openGraphImageUrl}></img>
+          <div className="photo">
+            <img src={repository.openGraphImageUrl}></img>
+          </div>
+
           <div className="repository-description">{repository.description}</div>
           <div className="container-repository-and-demo">
             <a href={repository.url}>Repository</a>
