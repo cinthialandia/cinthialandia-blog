@@ -33,6 +33,7 @@
   justify-content: space-around;
   align-self: flex-end;
   padding-bottom: 20px;
+  font-size: 18px;
 }
 
 .card-container {
@@ -46,6 +47,11 @@
 
 .card-container > * {
   flex: 1 1 100%;
+}
+
+.container-repository-and-demo a {
+  color: black;
+  background-image: none;
 }
 
 @media (max-width: 800px) {

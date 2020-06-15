@@ -14,8 +14,12 @@ const Repository = ({ repository }) => {
 
           <div className="repository-description">{repository.description}</div>
           <div className="container-repository-and-demo">
-            <a href={repository.url}>Repository</a>
-            <a href={repository.homepageUrl}>Live demo</a>
+            <a href={repository.url} target="_blank">
+              Repository
+            </a>
+            <a href={repository.homepageUrl} target="_blank">
+              Live demo
+            </a>
           </div>
         </div>
       </div>

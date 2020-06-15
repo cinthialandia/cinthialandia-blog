@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap");
+
+.container {
+  display: flex;
+  background-color: #f7f1f0;
+  justify-content: space-around;
+}
+
+.container a {
+  color: black;
+  background-image: none;
+}
+
+.cinthialandia {
+  font-family: "Homemade Apple", cursive;
+}
