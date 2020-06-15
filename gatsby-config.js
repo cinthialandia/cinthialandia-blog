@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Cinthialandia`,
@@ -60,6 +64,41 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: "gatsby-source-github",
+      options: {
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+        queries: [
+          `{
+            user(login: "cinthialandia") {
+              repositories(first: 100) {
+                edges {
+                  node {
+                    name
+                    url
+                    homepageUrl
+                    description
+                    openGraphImageUrl
+                    createdAt
+                    repositoryTopics(first: 5) {
+                      edges {
+                        node {
+                          topic {
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }`,
+        ],
       },
     },
   ],
