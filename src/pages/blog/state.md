@@ -1,6 +1,6 @@
 ---
 title: State
-
+featuredImage: state.png
 date: "2020-05-29"
 ---
 

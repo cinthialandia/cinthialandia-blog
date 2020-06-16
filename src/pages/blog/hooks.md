@@ -1,5 +1,6 @@
 ---
 title: Hooks
+featuredImage: hooks.png
 date: "2020-06-01"
 ---
 
@@ -11,17 +12,17 @@ date: "2020-06-01"
 const [action, setAction] = useState("Hello!")
 ```
 
-The hook's syntax is a react API  called `useState`  that is a destructured array, wich their first value is a variable with the value's state, the second variable is a function that allows you update the state of the component to any value, all this is equalized to `useState` who sets de default state's value. 
+The hook's syntax is a react API called `useState` that is a destructured array, wich their first value is a variable with the value's state, the second variable is a function that allows you update the state of the component to any value, all this is equalized to `useState` who sets de default state's value.
 
-### Components with complicated logic make harder understand 
+### Components with complicated logic make harder understand
 
-When maintaining components with different types of life cycles and extensive logic, those are more prone to bugs or inconsistencies, hooks divide into littler pieces of logic in functions base on how the data is related. 
+When maintaining components with different types of life cycles and extensive logic, those are more prone to bugs or inconsistencies, hooks divide into littler pieces of logic in functions base on how the data is related.
 
-### Classes confuse people and machines. 
+### Classes confuse people and machines.
 
-`This` is a syntax that you have to understand deeply, use components classes represent more quantity of code. Hooks can be used in functional components writing less code and less complexity in our logic. 
+`This` is a syntax that you have to understand deeply, use components classes represent more quantity of code. Hooks can be used in functional components writing less code and less complexity in our logic.
 
-## Hooks and state 
+## Hooks and state
 
 Hooks are created, to add state to a functional component, and introduce us to a new syntax called `useState`, that allows you to have state and management in the component.
 
@@ -35,13 +36,13 @@ For more information about `hooks` and lifecycles
 
 ## Rules of Hooks
 
-- Hooks can't be called inside loops, conditions, and nested functions. 
-- Hooks must be called in the same order every time they have been called. 
+- Hooks can't be called inside loops, conditions, and nested functions.
+- Hooks must be called in the same order every time they have been called.
 - Hooks only can be called from `react` components
 
-## Customize your own hooks 
+## Customize your own hooks
 
-Customize hooks allows you to create a functionality that could be used through different components. A function is a hook if it is a function that uses another hook. 
+Customize hooks allows you to create a functionality that could be used through different components. A function is a hook if it is a function that uses another hook.
 
 `Hooks` for the convention should start the function's name with "use", this is to speed up the identification of hooks in the code from common functions.
 
@@ -94,11 +95,11 @@ export const FunctionalComponent2 = () => {
 }
 ```
 
-In this example, we made a custom hook, `useState` handle the state with an action for default and have a toggle function that updates their value, this function makes a logic where is showing a greeting depending on the state's value, this hook is used for functional component 1 and 2, sharing the information and logic of our state, for being used for another hook.  
+In this example, we made a custom hook, `useState` handle the state with an action for default and have a toggle function that updates their value, this function makes a logic where is showing a greeting depending on the state's value, this hook is used for functional component 1 and 2, sharing the information and logic of our state, for being used for another hook.
 
-## The hooks came to solve a few problems in reactIts 
+## The hooks came to solve a few problems in reactIts
 
-### It's hard to re-use the state's logic between components. 
+### It's hard to re-use the state's logic between components.
 
 Before hooks in react, people needed to use patterns like render props or higher-order-components to solve some cases. With hooks, you can extract the logic of the component's state and used it in an independent and re-using way, in other words, hooks allow you to share information without making big changes in the component.
 

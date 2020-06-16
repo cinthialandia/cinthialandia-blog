@@ -1,5 +1,6 @@
 ---
 title: Hooks
+featuredImage: hooks.png
 date: "2020-06-01"
 ---
 
@@ -15,11 +16,11 @@ La sintaxis del hook es la siguiente, `useState` es una API de reactI la cual es
 
 ### Componentes con lógicas complicadas hace que sea más difícil de entender
 
- cuando mantenemos componentes con distintos tipos de ciclos de vida y extensa lógica, son más propensos a bugs o inconsistencias, con los hooks se divide en pequeñas funciones basada en cómo la data está relacionada.
+cuando mantenemos componentes con distintos tipos de ciclos de vida y extensa lógica, son más propensos a bugs o inconsistencias, con los hooks se divide en pequeñas funciones basada en cómo la data está relacionada.
 
 ### Clases confunden a las personas y las máquinas
 
- `this` es una sintaxis que tienes que entender a profundidad, y para utilizarlo con componentes de clases, representa una cantidad de código más amplia. Hooks pueden ser utilizados en componentes funcionales, haciendo menos código y menos complejidad al mismo.
+`this` es una sintaxis que tienes que entender a profundidad, y para utilizarlo con componentes de clases, representa una cantidad de código más amplia. Hooks pueden ser utilizados en componentes funcionales, haciendo menos código y menos complejidad al mismo.
 
 ## Hooks y estados
 
@@ -94,7 +95,7 @@ export const FunctionalComponent2 = () => {
 }
 ```
 
-En este ejemplo, realizamos el `hook` personalizado, `useStado` el cual maneja un estado con accion por defecto, y tiene una funcion `toggleState` que actualiza el valor de este, esta funcion realiza una logica de mostrar una saludo dependiendo del valor de estado, y este es utilizado en nuestros 2 componentes funcionales, compartiendo la logica e informacion del estado de nuestro `useStado` para ser utilizado por otros hooks. 
+En este ejemplo, realizamos el `hook` personalizado, `useStado` el cual maneja un estado con accion por defecto, y tiene una funcion `toggleState` que actualiza el valor de este, esta funcion realiza una logica de mostrar una saludo dependiendo del valor de estado, y este es utilizado en nuestros 2 componentes funcionales, compartiendo la logica e informacion del estado de nuestro `useStado` para ser utilizado por otros hooks.
 
 ## Los hooks llegaron para solventar algunos problemas que se encontraban en React.
 
@@ -161,4 +162,4 @@ export class ClassComponent2 extends Component {
 }
 ```
 
-En este ejercicio,tenemos la misma lógica de nuestro ejemplo anterior, pero declarada en un componente de clase, si quisiéramos utilizar la lógica declarada y la información del estado, deberíamos utilizar patrones para poder hacerlo de manera más interactiva, en este caso, copiamos el componente completo, ya que en nuestro ejercicio queremos 2 componentes que hagan lo mismo. 
+En este ejercicio,tenemos la misma lógica de nuestro ejemplo anterior, pero declarada en un componente de clase, si quisiéramos utilizar la lógica declarada y la información del estado, deberíamos utilizar patrones para poder hacerlo de manera más interactiva, en este caso, copiamos el componente completo, ya que en nuestro ejercicio queremos 2 componentes que hagan lo mismo.
