@@ -2,6 +2,7 @@ import React from "react"
 import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import { Link } from "gatsby"
+import "./post.css"
 
 const Post = ({ node }) => (
   <div>
@@ -12,6 +13,14 @@ const Post = ({ node }) => (
         color: inherit;
       `}
     >
+      {" "}
+      <div className="image-post-principal">
+        {node.frontmatter.featuredImage && (
+          <img
+            src={node.frontmatter.featuredImage.childImageSharp.fluid.src}
+          ></img>
+        )}
+      </div>
       <h3
         css={css`
           margin-bottom: ${rhythm(1 / 4)};

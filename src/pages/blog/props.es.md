@@ -1,5 +1,6 @@
 ---
 title: Props
+featuredImage: props.png
 date: "2020-05-21"
 ---
 
