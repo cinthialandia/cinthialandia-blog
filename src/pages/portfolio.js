@@ -30,7 +30,7 @@ const Repository = ({ repository }) => {
 export default function Portfolio({ data }) {
   return (
     <Layout>
-      <h1>Portfolio</h1>
+      <div className="portfolio-title">Portfolio</div>
       <div className="container">
         {data.allGithubRepositories.edges.map(node => (
           <Repository key={node.node.name} repository={node.node} />
