@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Repository from "../components/repository"
 import Post from "../components/Post"
 
 export default function Home({ data }) {
@@ -11,6 +12,11 @@ export default function Home({ data }) {
 
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <Post key={node.id} node={node} />
+        ))}
+      </div>
+      <div className="container">
+        {data.allGithubRepositories.edges.map(node => (
+          <Repository key={node.node.name} repository={node.node} />
         ))}
       </div>
     </Layout>

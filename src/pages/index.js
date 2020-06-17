@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Post from "../components/Post"
 import cinthialandia from "./img/logito.png"
+import Repository from "../components/repository"
 import "./index.css"
 
 export default function Home({ data }) {
@@ -16,6 +17,11 @@ export default function Home({ data }) {
 
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <Post key={node.id} node={node} />
+        ))}
+      </div>
+      <div className="container">
+        {data.allGithubRepositories.edges.map(node => (
+          <Repository key={node.node.name} repository={node.node} />
         ))}
       </div>
     </Layout>
