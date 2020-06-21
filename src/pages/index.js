@@ -14,7 +14,6 @@ export default function Home({ data }) {
           <img src={cinthialandia} />
         </div>
         <h1>Latest posts</h1>
-
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <Post key={node.id} node={node} />
         ))}
