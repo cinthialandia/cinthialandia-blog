@@ -1,6 +1,6 @@
 ---
-title: Ciclos de vida
-featuredImage: life-cycles.png
+title: Ciclos de vida y Hooks
+featuredImage: life-cycles-and-hooks.png
 date: "2020-06-21"
 ---
 
@@ -15,80 +15,80 @@ Tenemos un pomodoro Clock, que tiene un input, en el cual se podrá escribir la 
 > Para este ejercicio, estaremos utilizando, la librería `tiny-timer`, esta recibe, el tiempo que se desea ser contado, y realizará la lógica de regresarnos la cantidad de milisegundos, que nos quedan para que ese tiempo se cumpla.
 
 ```jsx
-import React, { Component, useState, useMemo, useEffect } from "react";
-import { render } from "react-dom";
-import Timer from "tiny-timer";
-import "./style.css";
+import React, { Component, useState, useMemo, useEffect } from "react"
+import { render } from "react-dom"
+import Timer from "tiny-timer"
+import "./style.css"
 
 const convertMinutestoMilliseconds = minutes => {
   // adding 1 second to "show the 00:00"
-  return Math.floor(minutes * 60 * 1000) + 1000;
-};
+  return Math.floor(minutes * 60 * 1000) + 1000
+}
 
 const convertMillisecondsToTime = ms => {
   const timeAPI = {
     MINUTES: 1000 * 60,
-    SECONDS: 1000
-  };
+    SECONDS: 1000,
+  }
 
   if (ms <= 0) {
     return {
       minutes: `00`,
-      seconds: `00`
-    };
+      seconds: `00`,
+    }
   }
 
-  const minutes = Math.floor(ms / timeAPI.MINUTES);
-  ms %= timeAPI.MINUTES;
+  const minutes = Math.floor(ms / timeAPI.MINUTES)
+  ms %= timeAPI.MINUTES
   // substracting 1 to show the "00:00"
-  let seconds = Math.round(ms / timeAPI.SECONDS);
+  let seconds = Math.round(ms / timeAPI.SECONDS)
 
   if (seconds > 0) {
-    seconds = seconds - 1;
+    seconds = seconds - 1
   }
 
   return {
     minutes: minutes.toString().padStart(2, "0"),
-    seconds: seconds.toString().padStart(2, "0")
-  };
-};
+    seconds: seconds.toString().padStart(2, "0"),
+  }
+}
 
 function App() {
-  const [timeInMinutes, setTimeInMinutes] = useState(5);
+  const [timeInMinutes, setTimeInMinutes] = useState(5)
   const [timeInMiliseconds, setTimeInMiliseconds] = useState(
     convertMinutestoMilliseconds(5)
-  );
-  const [timeLeft, setTimeLeft] = useState({ seconds: "00", minutes: "00" });
+  )
+  const [timeLeft, setTimeLeft] = useState({ seconds: "00", minutes: "00" })
   // a force render hack :)
-  const [_, forceRender] = useState([]);
+  const [_, forceRender] = useState([])
 
   const handleChange = e => {
-    console.log(e);
-    const minutes = e.target.value;
-    const miliseconds = convertMinutestoMilliseconds(minutes);
-    setTimeInMinutes(minutes);
-    setTimeInMiliseconds(miliseconds);
-  };
+    console.log(e)
+    const minutes = e.target.value
+    const miliseconds = convertMinutestoMilliseconds(minutes)
+    setTimeInMinutes(minutes)
+    setTimeInMiliseconds(miliseconds)
+  }
 
   const handlePlay = () => {
     if (timer.status === "paused") {
-      timer.resume();
-      return;
+      timer.resume()
+      return
     }
-    timer.start(timeInMiliseconds);
-  };
+    timer.start(timeInMiliseconds)
+  }
 
   const handlePause = () => {
-    timer.pause();
-    forceRender([]);
-  };
+    timer.pause()
+    forceRender([])
+  }
 
   const handleRewind = () => {
-    timer.stop();
-    setTimeInMinutes(5);
-    setTimeInMiliseconds(convertMinutestoMilliseconds(5));
-    setTimeLeft({ seconds: "00", minutes: "00" });
-  };
+    timer.stop()
+    setTimeInMinutes(5)
+    setTimeInMiliseconds(convertMinutestoMilliseconds(5))
+    setTimeLeft({ seconds: "00", minutes: "00" })
+  }
 
   return (
     <div>
@@ -104,10 +104,10 @@ function App() {
 
       <button onClick={handleRewind}>Rewind</button>
     </div>
-  );
+  )
 }
 
-render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById("root"))
 ```
 
 Comenzamos realizando el input y los 3 botones a utilizar, los cuales los 4 se les asigna una función `onClick` y `onchange`que escucharan los eventos de cambios realizados en estos elementos. En los botones play y pause, tenemos un if, el cual decidirá qué botón mostrar de acuerdo al estado del countdown.
@@ -124,20 +124,18 @@ Y finalmente tenemos nuestra funcion `handleRewind`, esta se encargará primeram
 
 ## Componentes funcionales y ciclos de vida
 
-### Render()
+### useMemo()
 
-Es el método más utilizado de los ciclos de vida, porque es el único que es requerido en el componente de clase. Este maneja la renderización del componente en la UI sin efectos secundarios es decir es un método puro.
+Es un Hook que es utilizado para crear un valor a guardar y la misma devuelve un valor guardado, por ejemplo a veces debemos calcular un valor, por medio funciones complejas las cuales llegan a ser pesadas, por lo tanto con este hook, esta operación solo se realiza una sola vez, luego el valor del mismo, se almacenará y la próxima vez que se desee hacer referencia a él, se obtendrá mucho más rápido.
 
-### ComponenDdidMount()
-
-Es llamado cuando el componente ha sido preparado y listo, esta función permite el uso del `setState()` y actualizar el mismo causando la renderización antes de que el buscador actualice la UI.
+En este ejercicio, creamos una instancia del nuevo timer (librería que estamos usando), pero lo crearemos dentro de este hook, para que el valor de la variable, no se reescribe cada vez que el componente renderice, sino que se mantenga el valor del mismo.
 
 ```jsx
-import React, { Component } from "react"
+import React, { Component, useState, useMemo, useEffect } from "react"
 import { render } from "react-dom"
 import Timer from "tiny-timer"
 import "./style.css"
-//
+
 const convertMinutestoMilliseconds = minutes => {
   // adding 1 second to "show the 00:00"
   return Math.floor(minutes * 60 * 1000) + 1000
@@ -171,101 +169,79 @@ const convertMillisecondsToTime = ms => {
   }
 }
 
-class App extends Component {
-  state = {
-    timeInMinutes: 5,
-    timeInMiliseconds: convertMinutestoMilliseconds(5),
-    timeLeft: {
-      minutes: "05",
-      seconds: "00",
-    },
-  }
+function App() {
+  const [timeInMinutes, setTimeInMinutes] = useState(5)
+  const [timeInMiliseconds, setTimeInMiliseconds] = useState(
+    convertMinutestoMilliseconds(5)
+  )
+  const [timeLeft, setTimeLeft] = useState({ seconds: "00", minutes: "00" })
+  // a force render hack :)
+  const [_, forceRender] = useState([])
 
-  timer = new Timer()
+  const timer = useMemo(() => new Timer(), [])
 
-  handleChange = e => {
+  const handleChange = e => {
+    console.log(e)
     const minutes = e.target.value
     const miliseconds = convertMinutestoMilliseconds(minutes)
-    this.setState({
-      timeInMinutes: minutes,
-      timeInMiliseconds: miliseconds,
-    })
+    setTimeInMinutes(minutes)
+    setTimeInMiliseconds(miliseconds)
   }
 
-  handlePlay = () => {
-    if (this.timer.status === "paused") {
-      this.timer.resume()
+  const handlePlay = () => {
+    if (timer.status === "paused") {
+      timer.resume()
       return
     }
-    this.timer.start(this.state.timeInMiliseconds)
+    timer.start(timeInMiliseconds)
   }
 
-  handlePause = () => {
-    this.timer.pause()
-    this.forceUpdate()
+  const handlePause = () => {
+    timer.pause()
+    forceRender([])
   }
 
-  handleRewind = () => {
-    this.timer.stop()
-    this.setState({
-      timeInMinutes: 5,
-      timeInMiliseconds: convertMinutestoMilliseconds(5),
-      timeLeft: {
-        minutes: "05",
-        seconds: "00",
-      },
-    })
+  const handleRewind = () => {
+    timer.stop()
+    setTimeInMinutes(5)
+    setTimeInMiliseconds(convertMinutestoMilliseconds(5))
+    setTimeLeft({ seconds: "00", minutes: "00" })
   }
 
-  componentDidMount() {
-    this.timer.on("tick", ms => {
-      this.setState({
-        timeInMiliseconds: ms,
-      })
-    })
-  }
-
-  render() {
-    return (
+  return (
+    <div>
+      <h2>Pomodoro Clock!</h2>
       <div>
-        <h2>Pomodoro Clock!</h2>
-        <div>
-          {this.state.timeLeft.minutes}:{this.state.timeLeft.seconds}
-        </div>
-
-        <input
-          onChange={this.handleChange}
-          type="text"
-          value={this.state.timeInMinutes}
-        />
-        {this.timer.status === "running" ? (
-          <button onClick={this.handlePause}>Pause</button>
-        ) : (
-          <button onClick={this.handlePlay}>Play</button>
-        )}
-        <button onClick={this.handleRewind}>Rewind</button>
+        {timeLeft.minutes}:{timeLeft.seconds}
       </div>
-    )
-  }
+      <input onChange={handleChange} type="text" value={timeInMinutes} />
+
+      <button onClick={handlePause}>Pause</button>
+
+      <button onClick={handlePlay}>Play</button>
+
+      <button onClick={handleRewind}>Rewind</button>
+    </div>
+  )
 }
 
 render(<App />, document.getElementById("root"))
 ```
 
-Utilizamos este método, porque necesitamos escuchar nuestro timer una sola vez, es decir necesitamos un solo countdown en la vida de nuestro componente, y este no cambie independientemente de las actualizaciones y renderizaciones, por lo que declaramos en nuestra función, el timer como iniciado y actualizamos nuestro estado la propiedad con los milisegundos restantes que nos regresa la función.
+### useEffect()
 
-### ComponentDidUpdate()
+`useEffect hook is a function that allows you to have side effects in a functional component. In class components we have life-cycle methods as`componentDidMount`,`componentDidUpdate`, and`componentWillUnmount, this hook has the same functionality of all three methods in the functional component.
 
-Es invocado al momento de actualizar, el uso más común para esta función es para actualizar DOM en respuesta de props o cambios del estado.
+In this example, we used the first `useEffect` and we started the countdown, this one gives us the number of milliseconds left and we update the state with that number, we also remove all the listeners in the component, this function is making all the functionality as `componentDidMount` and `componentWillUnmount`.
 
-El ejemplo más común para utilizar este método, sería cuando tienes que llamar una API o una condición que cambie el valor del estado.
+The next `useEffect`, updates the state with the time left which is going to show in the screen this function is going to update every time the milliseconds change, this function is making the same functionality of the method `componentDidUpdate`
 
 ```jsx
-import React, { Component } from "react"
+import React, { Component, useState, useMemo, useEffect } from "react"
 import { render } from "react-dom"
 import Timer from "tiny-timer"
 import "./style.css"
-//
+
 const convertMinutestoMilliseconds = minutes => {
   // adding 1 second to "show the 00:00"
   return Math.floor(minutes * 60 * 1000) + 1000
@@ -299,235 +275,79 @@ const convertMillisecondsToTime = ms => {
   }
 }
 
-class App extends Component {
-  state = {
-    timeInMinutes: 5,
-    timeInMiliseconds: convertMinutestoMilliseconds(5),
-    timeLeft: {
-      minutes: "05",
-      seconds: "00",
-    },
-  }
+function App() {
+  const [timeInMinutes, setTimeInMinutes] = useState(5)
+  const [timeInMiliseconds, setTimeInMiliseconds] = useState(
+    convertMinutestoMilliseconds(5)
+  )
+  const [timeLeft, setTimeLeft] = useState({ seconds: "00", minutes: "00" })
+  // a force render hack :)
+  const [_, forceRender] = useState([])
 
-  timer = new Timer()
+  const timer = useMemo(() => new Timer(), [])
 
-  handleChange = e => {
+  const handleChange = e => {
+    console.log(e)
     const minutes = e.target.value
     const miliseconds = convertMinutestoMilliseconds(minutes)
-    this.setState({
-      timeInMinutes: minutes,
-      timeInMiliseconds: miliseconds,
-    })
+    setTimeInMinutes(minutes)
+    setTimeInMiliseconds(miliseconds)
   }
 
-  handlePlay = () => {
-    if (this.timer.status === "paused") {
-      this.timer.resume()
+  const handlePlay = () => {
+    if (timer.status === "paused") {
+      timer.resume()
       return
     }
-    this.timer.start(this.state.timeInMiliseconds)
+    timer.start(timeInMiliseconds)
   }
 
-  handlePause = () => {
-    this.timer.pause()
-    this.forceUpdate()
+  const handlePause = () => {
+    timer.pause()
+    forceRender([])
   }
 
-  handleRewind = () => {
-    this.timer.stop()
-    this.setState({
-      timeInMinutes: 5,
-      timeInMiliseconds: convertMinutestoMilliseconds(5),
-      timeLeft: {
-        minutes: "05",
-        seconds: "00",
-      },
+  const handleRewind = () => {
+    timer.stop()
+    setTimeInMinutes(5)
+    setTimeInMiliseconds(convertMinutestoMilliseconds(5))
+    setTimeLeft({ seconds: "00", minutes: "00" })
+  }
+
+  useEffect(() => {
+    timer.on("tick", ms => {
+      setTimeInMiliseconds(ms)
+
+      return () => {
+        timer.removeAllListeners()
+      }
     })
-  }
+  }, [])
 
-  componentDidMount() {
-    this.timer.on("tick", ms => {
-      this.setState({
-        timeInMiliseconds: ms,
-      })
-    })
-  }
+  useEffect(() => {
+    setTimeLeft(convertMillisecondsToTime(timeInMiliseconds))
+  }, [timeInMiliseconds])
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.timeInMiliseconds != prevState.timeInMiliseconds) {
-      this.setState({
-        timeLeft: convertMillisecondsToTime(this.state.timeInMiliseconds),
-      })
-    }
-  }
-
-  render() {
-    return (
+  return (
+    <div>
+      <h2>Pomodoro Clock!</h2>
       <div>
-        <h2>Pomodoro Clock!</h2>
-        <div>
-          {this.state.timeLeft.minutes}:{this.state.timeLeft.seconds}
-        </div>
-
-        <input
-          onChange={this.handleChange}
-          type="text"
-          value={this.state.timeInMinutes}
-        />
-        {this.timer.status === "running" ? (
-          <button onClick={this.handlePause}>Pause</button>
-        ) : (
-          <button onClick={this.handlePlay}>Play</button>
-        )}
-        <button onClick={this.handleRewind}>Rewind</button>
+        {timeLeft.minutes}:{timeLeft.seconds}
       </div>
-    )
-  }
+      <input onChange={handleChange} type="text" value={timeInMinutes} />
+
+      <button onClick={handlePause}>Pause</button>
+
+      <button onClick={handlePlay}>Play</button>
+
+      <button onClick={handleRewind}>Rewind</button>
+    </div>
+  )
 }
 
 render(<App />, document.getElementById("root"))
 ```
 
-Este método, trae 2 parámetros, los props anteriores y el estado anterior, lo utilizamos porque queremos actualizar nuestro componente cada vez que la propiedad `timeInMiliseconds` cambia, y cada vez que esto suceda, actualizar la propiedad de nuestro estado `timeLeft` con el tiempo nuevo a mostrar en pantalla.
+Ejercicio completo aquí:
 
-### ComponentWillUnmount()
-
-Método que es llamado justo antes de que el componente sea destruidos, si tienes que realizar una acción de limpieza, este sería el mejor lugar para hacerlo.
-
-```jsx
-import React, { Component } from "react"
-import { render } from "react-dom"
-import Timer from "tiny-timer"
-import "./style.css"
-//
-const convertMinutestoMilliseconds = minutes => {
-  // adding 1 second to "show the 00:00"
-  return Math.floor(minutes * 60 * 1000) + 1000
-}
-
-const convertMillisecondsToTime = ms => {
-  const timeAPI = {
-    MINUTES: 1000 * 60,
-    SECONDS: 1000,
-  }
-
-  if (ms <= 0) {
-    return {
-      minutes: `00`,
-      seconds: `00`,
-    }
-  }
-
-  const minutes = Math.floor(ms / timeAPI.MINUTES)
-  ms %= timeAPI.MINUTES
-  // substracting 1 to show the "00:00"
-  let seconds = Math.round(ms / timeAPI.SECONDS)
-
-  if (seconds > 0) {
-    seconds = seconds - 1
-  }
-
-  return {
-    minutes: minutes.toString().padStart(2, "0"),
-    seconds: seconds.toString().padStart(2, "0"),
-  }
-}
-
-class App extends Component {
-  state = {
-    timeInMinutes: 5,
-    timeInMiliseconds: convertMinutestoMilliseconds(5),
-    timeLeft: {
-      minutes: "05",
-      seconds: "00",
-    },
-  }
-
-  timer = new Timer()
-
-  handleChange = e => {
-    const minutes = e.target.value
-    const miliseconds = convertMinutestoMilliseconds(minutes)
-    this.setState({
-      timeInMinutes: minutes,
-      timeInMiliseconds: miliseconds,
-    })
-  }
-
-  handlePlay = () => {
-    if (this.timer.status === "paused") {
-      this.timer.resume()
-      return
-    }
-    this.timer.start(this.state.timeInMiliseconds)
-  }
-
-  handlePause = () => {
-    this.timer.pause()
-    this.forceUpdate()
-  }
-
-  handleRewind = () => {
-    this.timer.stop()
-    this.setState({
-      timeInMinutes: 5,
-      timeInMiliseconds: convertMinutestoMilliseconds(5),
-      timeLeft: {
-        minutes: "05",
-        seconds: "00",
-      },
-    })
-  }
-
-  componentDidMount() {
-    this.timer.on("tick", ms => {
-      this.setState({
-        timeInMiliseconds: ms,
-      })
-    })
-  }
-
-  componentWillUnmount() {
-    this.timer.removeAllListeners()
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.timeInMiliseconds != prevState.timeInMiliseconds) {
-      this.setState({
-        timeLeft: convertMillisecondsToTime(this.state.timeInMiliseconds),
-      })
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>Pomodoro Clock!</h2>
-        <div>
-          {this.state.timeLeft.minutes}:{this.state.timeLeft.seconds}
-        </div>
-
-        <input
-          onChange={this.handleChange}
-          type="text"
-          value={this.state.timeInMinutes}
-        />
-        {this.timer.status === "running" ? (
-          <button onClick={this.handlePause}>Pause</button>
-        ) : (
-          <button onClick={this.handlePlay}>Play</button>
-        )}
-        <button onClick={this.handleRewind}>Rewind</button>
-      </div>
-    )
-  }
-}
-
-render(<App />, document.getElementById("root"))
-```
-
-Este método lo utilizamos, para remover todos los listener del timer, y este se pueda destruir al finalizar el ciclo del componente, si no realizamos este método, el timer no será eliminado y quedará guardado en memoria.
-
-Ejercicio completo aqui:
-
-https://stackblitz.com/edit/react-ae1ybw?file=index.js
+https://stackblitz.com/edit/react-nft7ra
