@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons"
-import "./layout.css"
+import "./layout.scss"
 import australiasvg from "./img/australia.svg"
 import spainsvg from "./img/spain.svg"
 

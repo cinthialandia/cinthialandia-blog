@@ -1,7 +1,8 @@
 import React from "react"
-import "./repository.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
+
+import "./repository.scss"
 
 const Repository = ({ repository }) => {
   return (
@@ -12,12 +13,12 @@ const Repository = ({ repository }) => {
       <div className="repository-info-container">
         <div className="repository-link">
           <FontAwesomeIcon icon={faGithub} />{" "}
-          <a href={repository.url} target="_blank">
+          <a className="repository-link" href={repository.url} target="_blank">
             {repository.url}
           </a>
         </div>
-        <div clasName="repository-name">{repository.name}</div>
-        <div className="repository-description">{repository.description}</div>
+        <h2 className="repository-name">{repository.name}</h2>
+        <p className="repository-description">{repository.description}</p>
         <a
           className="button-primary"
           href={repository.homepageUrl}

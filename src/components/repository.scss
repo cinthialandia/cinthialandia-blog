@@ -1,0 +1,43 @@
+@import "./variables.scss";
+
+$text-color: #ffffff;
+
+.repository-container {
+  display: flex;
+  margin: 15px 0px;
+  width: 100%;
+}
+
+.repository-photo {
+  flex: 1;
+}
+
+.repository-photo img {
+  width: 100%;
+  display: block;
+  margin: 0;
+}
+
+.repository-info-container {
+  flex: 1;
+  background-color: $secondary-color;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.repository-description {
+  color: $text-color;
+  font-size: 14px;
+}
+
+.repository-name {
+  color: $text-color;
+}
+
+.repository-link {
+  color: $text-color;
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+}
