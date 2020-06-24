@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+.container-post {
+  display: flex;
+  margin: 15px 0px;
+  width: 100%;
+}
+
+.image-post-principal {
+  flex: 1;
+  background-color: white;
+}
+
+.image-post-principal img {
+  width: 100%;
+  display: block;
+  margin: 0;
+  border: 1px solid #021a40;
+}
+
+.container-post-information {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  overflow-wrap: break-word;
+  border: 1px solid #021a40;
+}

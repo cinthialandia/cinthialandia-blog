@@ -10,6 +10,9 @@ $text-color: #ffffff;
 
 .repository-photo {
   flex: 1;
+  background-color: $secondary-color;
+  display: flex;
+  align-items: center;
 }
 
 .repository-photo img {
@@ -20,9 +23,14 @@ $text-color: #ffffff;
 
 .repository-info-container {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   background-color: $secondary-color;
+  padding: 20px;
   text-align: center;
-  align-self: flex-end;
+  overflow-wrap: break-word;
 }
 
 .repository-description {
@@ -40,4 +48,8 @@ $text-color: #ffffff;
 }
 
 @media (max-width: 800px) {
+  .repository-container {
+    display: flex;
+    flex-direction: column;
+  }
 }

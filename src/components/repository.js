@@ -17,8 +17,10 @@ const Repository = ({ repository }) => {
             {repository.url}
           </a>
         </div>
-        <h2 className="repository-name">{repository.name}</h2>
-        <p className="repository-description">{repository.description}</p>
+        <div>
+          <h2 className="repository-name">{repository.name}</h2>
+          <p className="repository-description">{repository.description}</p>
+        </div>
         <a
           className="button-primary"
           href={repository.homepageUrl}

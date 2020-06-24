@@ -1,11 +1,10 @@
 import React from "react"
-import { css } from "@emotion/core"
 import { Link } from "gatsby"
-import "./post.css"
+import "./post.scss"
 
 const Post = ({ node }) => (
-  <div className="container-post">
-    <Link to={node.fields.slug}>
+  <>
+    <div className="container-post">
       <div className="image-post-principal">
         {node.frontmatter.featuredImage && (
           <img
@@ -13,12 +12,16 @@ const Post = ({ node }) => (
           ></img>
         )}
       </div>
-      <h3>
-        {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
-      </h3>
-      <p>{node.excerpt}</p>
-    </Link>
-  </div>
+      <div className="container-post-information">
+        <Link to={node.fields.slug}>
+          <h3>
+            {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
+          </h3>
+          <p>{node.excerpt}</p>
+        </Link>
+      </div>
+    </div>
+  </>
 )
 
 export default Post
