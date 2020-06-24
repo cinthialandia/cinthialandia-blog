@@ -1,6 +1,5 @@
 import React from "react"
 import { css } from "@emotion/core"
-import { rhythm } from "../utils/typography"
 import { Link } from "gatsby"
 import "./post.css"
 
