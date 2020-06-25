@@ -7,3 +7,38 @@
   width: 400px;
   height: auto;
 }
+
+.home-container-post {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  padding: 60px 80px;
+  margin: 0 auto;
+}
+
+.home-container-repository-small {
+  display: flex;
+  max-width: 1200px;
+  padding: 60px 80px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.home-container-repository-small > * {
+  width: calc(33.33% - 15px);
+}
+
+.home-title {
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .home-container-repository-small {
+    flex-direction: column;
+    padding: 30px 40px;
+  }
+
+  .home-container-repository-small > * {
+    width: 100%;
+  }
+}

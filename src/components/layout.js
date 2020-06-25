@@ -1,5 +1,4 @@
 import React from "react"
-import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons"

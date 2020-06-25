@@ -7,7 +7,7 @@ import "./portfolio.css"
 export default function Portfolio({ data }) {
   return (
     <Layout lang="es">
-      <div className="portfolio-title">Portfolio</div>
+      <h1 className="portfolio-title">Portafolio</h1>
       <div className="container-portfolio">
         {data.allGithubRepositories.edges.map(node => (
           <Repository key={node.node.name} repository={node.node} />

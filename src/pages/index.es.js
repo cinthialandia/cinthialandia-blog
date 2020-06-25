@@ -1,23 +1,30 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Repository from "../components/repository"
 import Post from "../components/Post"
+import cinthialandia from "./img/logito.png"
+import "./index.css"
+import RepositorySmall from "../components/repositorySmall"
 
 export default function Home({ data }) {
   return (
     <Layout lang="es">
       <div>
-        <h1>Últimas publicaciones</h1>
-
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <Post key={node.id} node={node} />
-        ))}
-      </div>
-      <div className="container">
-        {data.allGithubRepositories.edges.map(node => (
-          <Repository key={node.node.name} repository={node.node} />
-        ))}
+        <div className="cinthialandia">
+          <img src={cinthialandia} />
+        </div>
+        <h2 className="home-title">Mi ultimos proyectos</h2>
+        <div className="home-container-repository-small">
+          {data.allGithubRepositories.edges.map(node => (
+            <RepositorySmall key={node.node.name} repository={node.node} />
+          ))}
+        </div>
+        <h2 className="home-title">Mis ultimos posts</h2>
+        <div className="home-container-post">
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <Post key={node.id} node={node} />
+          ))}
+        </div>
       </div>
     </Layout>
   )
