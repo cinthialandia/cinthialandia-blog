@@ -43,23 +43,48 @@ a {
   text-align: center;
 }
 
-.container {
+header {
   display: flex;
-  background-color: #f7f1f0;
   justify-content: space-around;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
 }
 
-.container a {
-  color: black;
-  background-image: none;
+header > * {
+  flex: 1;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav > * {
+  margin: 0 20px;
 }
 
 .flag {
   display: flex;
 }
 
+.lang-select {
+  display: flex;
+  justify-content: center;
+}
+
 .flag img {
   width: 20px;
   height: auto;
   margin-right: 5px;
+}
+
+.nav-home {
+  text-align: center;
+}
+
+.nav-home img {
+  max-height: 70px;
 }

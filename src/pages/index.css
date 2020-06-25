@@ -32,6 +32,40 @@
   text-align: center;
 }
 
+.index-container-bio {
+  display: flex;
+  align-items: center;
+  padding: 50px 50px;
+}
+
+.bio-img {
+  flex: 1;
+  padding: 50px;
+}
+
+.info-bio {
+  flex: 2;
+}
+
+.bio-img-img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.home-button-visiting-blog {
+  padding-left: 40px;
+}
+
+.conect-icons {
+  display: flex;
+  padding-top: 30px;
+  font-size: 20px;
+}
+
+.conect-icons a {
+  padding-right: 30px;
+}
+
 @media (max-width: 800px) {
   .home-container-repository-small {
     flex-direction: column;

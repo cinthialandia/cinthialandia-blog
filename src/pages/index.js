@@ -1,20 +1,57 @@
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import {
+  faGithub,
+  faLinkedinIn,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Post from "../components/Post"
 import cinthialandia from "./img/logito.png"
+import mecinthia from "./img/me-cinthia.png"
 import "./index.css"
 import RepositorySmall from "../components/repositorySmall"
-import Bio from "../components/bio"
 
 export default function Home({ data }) {
   return (
     <Layout>
       <div>
-        <Bio />
-        <div className="cinthialandia">
-          <img src={cinthialandia} />
+        <div className="index-container-bio">
+          <div className="bio-img">
+            <img className="bio-img-img" src={mecinthia} />
+          </div>
+          <div className="info-bio">
+            <h1>Hi, I'm Cinthia!</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+              provident veniam reiciendis tempore nostrum dolorem nihil, est
+              maiores, sapiente modi corrupti ipsum maxime voluptates voluptas
+              inventore iusto aperiam ullam soluta?
+            </p>
+            <div>
+              <a className="button-primary" href={`/portfolio/`}>
+                check my work
+              </a>
+              <a className="home-button-visiting-blog" href={`/portfolio/`}>
+                or visit my blog <FontAwesomeIcon icon={faArrowRight} />
+              </a>
+            </div>
+            <div className="conect-icons">
+              <a href={`https://github.com/cinthialandia`} target="_blank">
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
+              <a href={`https://www.linkedin.com/in/cinthiaj/`} target="_blank">
+                <FontAwesomeIcon icon={faLinkedinIn} />
+              </a>
+              <a href={`https://twitter.com/_cinthialandia`} target="_blank">
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
+            </div>
+          </div>
         </div>
+
         <h2 className="home-title">My latest projects</h2>
         <div className="home-container-repository-small">
           {data.allGithubRepositories.edges.map(node => (
