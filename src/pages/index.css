@@ -75,4 +75,30 @@
   .home-container-repository-small > * {
     width: 100%;
   }
+  .index-container-bio {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-bio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .info-bio .button-primary {
+    margin: 15px 0;
+  }
+
+  .home-button-visiting-blog {
+    margin: 15px 0;
+  }
+
+  .conect-icons {
+    display: flex;
+  }
+
+  .conect-icons a {
+    flex: 1;
+  }
 }

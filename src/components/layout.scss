@@ -88,3 +88,54 @@ nav > * {
 .nav-home img {
   max-height: 70px;
 }
+
+.nav-button-mobile {
+  display: none;
+}
+
+.nav-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  header {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    display: none;
+  }
+
+  nav.visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav.visible > * {
+    margin: 5px;
+  }
+
+  .lang-select {
+    display: none;
+  }
+
+  .lang-select.visible {
+    display: flex;
+    margin: 5px;
+  }
+  .nav-button-container {
+    justify-content: space-between;
+    padding: 0 50px;
+  }
+
+  .nav-button-mobile {
+    display: flex;
+    background: none;
+    border: none;
+    font-size: 20px;
+  }
+}

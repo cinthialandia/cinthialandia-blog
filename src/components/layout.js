@@ -1,9 +1,11 @@
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import "./layout.scss"
 import australiasvg from "./img/australia.svg"
 import spainsvg from "./img/spain.svg"
 import cinthialandia from "./img/logito-edit.png"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 const LangSelect = ({ lang }) =>
   lang === "es" ? (
@@ -42,10 +44,15 @@ export default function Layout({ children, lang }) {
   return (
     <>
       <header>
-        <Link className="nav-home" to={prefixUrl(`/`)}>
-          <img src={cinthialandia} />
-        </Link>
-        <nav>
+        <div className="nav-button-container">
+          <Link className="nav-home" to={prefixUrl(`/`)}>
+            <img src={cinthialandia} />
+          </Link>
+          <button className="nav-button-mobile">
+            <FontAwesomeIcon icon={faBars} />
+          </button>
+        </div>
+        <nav className="visible">
           <Link className="nav-blog" to={prefixUrl(`/blog/`)}>
             Blog
           </Link>
@@ -53,7 +60,7 @@ export default function Layout({ children, lang }) {
             Portfolio
           </Link>
         </nav>
-        <div className="lang-select">
+        <div className="lang-select visible">
           <LangSelect lang={lang} />
         </div>
       </header>
