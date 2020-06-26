@@ -13,3 +13,9 @@
 .number-post {
   text-align: center;
 }
+
+@media (max-width: 800px) {
+  .container-blog {
+    padding: 30px 40px;
+  }
+}

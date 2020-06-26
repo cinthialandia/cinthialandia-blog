@@ -30,7 +30,7 @@ export default function Home({ data }) {
               maiores, sapiente modi corrupti ipsum maxime voluptates voluptas
               inventore iusto aperiam ullam soluta?
             </p>
-            <div>
+            <div className="bio-buttons">
               <a className="button-primary" href={`/portfolio/`}>
                 check my work
               </a>
