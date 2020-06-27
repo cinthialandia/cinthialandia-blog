@@ -8,12 +8,17 @@ const Repository = ({ repository }) => {
   return (
     <div className="repository-container">
       <div className="repository-photo">
-        <img src={repository.openGraphImageUrl}></img>
+        <img src={repository.openGraphImageUrl} alt="img-repository"></img>
       </div>
       <div className="repository-info-container">
         <div className="repository-link">
           <FontAwesomeIcon icon={faGithub} />{" "}
-          <a className="repository-link" href={repository.url} target="_blank">
+          <a
+            className="repository-link"
+            href={repository.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {repository.url}
           </a>
         </div>
@@ -25,6 +30,7 @@ const Repository = ({ repository }) => {
           className="button-primary"
           href={repository.homepageUrl}
           target="_blank"
+          rel="noopener noreferrer"
         >
           Live demo
         </a>

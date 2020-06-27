@@ -1,6 +1,6 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight, faBug } from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import {
   faGithub,
   faLinkedinIn,
@@ -20,8 +20,8 @@ export default function Home({ data }) {
       <div>
         <div className="index-container-bio">
           <div className="bio-img">
-            <img className="bio-img-img-1" src={medesktop} />
-            <img className="bio-img-img-2" src={memobile} />
+            <img className="bio-img-img-1" src={medesktop} alt="cinthia" />
+            <img className="bio-img-img-2" src={memobile} alt="cinthia" />
           </div>
           <div className="info-bio">
             <h1>Hello World!</h1>
@@ -41,13 +41,25 @@ export default function Home({ data }) {
               </a>
             </div>
             <div className="conect-icons">
-              <a href={`https://github.com/cinthialandia`} target="_blank">
+              <a
+                href={`https://github.com/cinthialandia`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href={`https://www.linkedin.com/in/cinthiaj/`} target="_blank">
+              <a
+                href={`https://www.linkedin.com/in/cinthiaj/`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
-              <a href={`https://twitter.com/_cinthialandia`} target="_blank">
+              <a
+                href={`https://twitter.com/_cinthialandia`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
             </div>
@@ -68,13 +80,25 @@ export default function Home({ data }) {
         </div>
         <div className="big-social-container">
           <div className="big-social-link">
-            <a href={`https://github.com/cinthialandia`} target="_blank">
+            <a
+              href={`https://github.com/cinthialandia`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faGithub} /> Cinthialandia
             </a>
-            <a href={`https://www.linkedin.com/in/cinthiaj/`} target="_blank">
+            <a
+              href={`https://www.linkedin.com/in/cinthiaj/`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faLinkedinIn} /> Cinthia Valero
             </a>
-            <a href={`https://twitter.com/_cinthialandia`} target="_blank">
+            <a
+              href={`https://twitter.com/_cinthialandia`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faTwitter} /> _cinthialandia
             </a>
           </div>

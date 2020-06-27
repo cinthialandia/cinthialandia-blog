@@ -16,14 +16,14 @@ const LangSelect = ({ lang }) =>
   lang === "es" ? (
     <Link to={`/`}>
       <span className="flag">
-        <img src={australiasvg} />
+        <img src={australiasvg} alt="australian flag" />
         <span>English</span>
       </span>
     </Link>
   ) : (
     <Link to={`/es/`}>
       <span className="flag">
-        <img src={spainsvg} />
+        <img src={spainsvg} alt="spain flag" />
         <span>Español</span>
       </span>
     </Link>
@@ -41,7 +41,7 @@ export default function Layout({ children, lang }) {
       <header className={menuOpen ? "open" : ""}>
         <div className="nav-button-container">
           <Link className="nav-home" to={prefixUrl(`/`)}>
-            <img src={cinthialandia} />
+            <img src={cinthialandia} alt="logo cinthialandia" />
           </Link>
           <button
             className="nav-button-mobile"
@@ -72,6 +72,7 @@ export default function Layout({ children, lang }) {
           <a
             href={`https://github.com/cinthialandia/cinthialandia-blog/pulls`}
             target="_blank"
+            rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faBug} /> Submit on issue
           </a>
@@ -79,13 +80,25 @@ export default function Layout({ children, lang }) {
           <p>CINTHIALANDIA</p>
 
           <div className="social-footer">
-            <a href={`https://github.com/cinthialandia`} target="_blank">
+            <a
+              href={`https://github.com/cinthialandia`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href={`https://www.linkedin.com/in/cinthiaj/`} target="_blank">
+            <a
+              href={`https://www.linkedin.com/in/cinthiaj/`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
-            <a href={`https://twitter.com/_cinthialandia`} target="_blank">
+            <a
+              href={`https://twitter.com/_cinthialandia`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faTwitter} />
             </a>
           </div>
