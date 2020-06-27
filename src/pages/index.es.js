@@ -11,7 +11,7 @@ import Layout from "../components/layout"
 import Post from "../components/Post"
 import "./index.scss"
 import RepositorySmall from "../components/repositorySmall"
-import medesktop from "./img/me-desktop.png"
+import medesktop from "./img/IMG_8125.jpg"
 import memobile from "./img/me-mobile.jpg"
 
 export default function Home({ data }) {

@@ -45,12 +45,13 @@
 
 .bio-img {
   flex: 1;
-  padding: 15px;
-  background-color: whitesmoke;
-  border-radius: 2px;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  // background-color: rgb(7, 7, 7);
+  // // border-radius: 2px;
+  // // box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+  // //   0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   margin-right: 40px;
+  margin-top: 20px;
 }
 
 .info-bio {
@@ -59,7 +60,7 @@
 
 .bio-img-img-1 {
   width: 100%;
-  max-width: 400px;
+  margin-bottom: -130px;
 }
 
 .bio-img-img-2 {
@@ -106,6 +107,7 @@
 .secondary-background {
   background-color: rgb(255, 255, 255);
   padding-bottom: 60px;
+  border-top: solid 10px black;
 }
 
 @media (max-width: 800px) {
