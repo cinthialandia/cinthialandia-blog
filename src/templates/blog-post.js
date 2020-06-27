@@ -9,13 +9,13 @@ export default function BlogPost({ data }) {
     <Layout lang={post.fields.langKey}>
       <div>
         <h1 className="title-post">{post.frontmatter.title}</h1>
-        <div className="image-post">
+        {/* <div className="image-post">
           {post.frontmatter.featuredImage && (
             <img
               src={post.frontmatter.featuredImage.childImageSharp.fluid.src}
             ></img>
           )}
-        </div>
+        </div> */}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
