@@ -9,9 +9,9 @@ import {
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Post from "../components/Post"
-import cinthialandia from "./img/logito.png"
-import mecinthia from "./img/me-cinthia.png"
-import "./index.css"
+import medesktop from "./img/me-desktop.png"
+import memobile from "./img/me-mobile.jpg"
+import "./index.scss"
 import RepositorySmall from "../components/repositorySmall"
 
 export default function Home({ data }) {
@@ -20,7 +20,8 @@ export default function Home({ data }) {
       <div>
         <div className="index-container-bio">
           <div className="bio-img">
-            <img className="bio-img-img" src={mecinthia} />
+            <img className="bio-img-img-1" src={medesktop} />
+            <img className="bio-img-img-2" src={memobile} />
           </div>
           <div className="info-bio">
             <h1>Hello World!</h1>
@@ -53,17 +54,40 @@ export default function Home({ data }) {
           </div>
         </div>
 
-        <h2 className="home-title">My latest projects</h2>
+        <h1 className="home-title">My latest projects</h1>
         <div className="home-container-repository-small">
           {data.allGithubRepositories.edges.map(node => (
             <RepositorySmall key={node.node.name} repository={node.node} />
           ))}
         </div>
-        <h2 className="home-title">My latest posts</h2>
+        <div className="home-button-secondary">
+          <a className="button-secondary" href={`/portfolio/`}>
+            check all my projects
+          </a>
+        </div>
+        <div className="big-social-container">
+          <div className="big-social-link">
+            <a href={`https://github.com/cinthialandia`} target="_blank">
+              <FontAwesomeIcon icon={faGithub} /> Cinthialandia
+            </a>
+            <a href={`https://www.linkedin.com/in/cinthiaj/`} target="_blank">
+              <FontAwesomeIcon icon={faLinkedinIn} /> Cinthia Valero
+            </a>
+            <a href={`https://twitter.com/_cinthialandia`} target="_blank">
+              <FontAwesomeIcon icon={faTwitter} /> _cinthialandia
+            </a>
+          </div>
+        </div>
+        <h1 className="home-title">My latest posts</h1>
         <div className="home-container-post">
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <Post key={node.id} node={node} />
           ))}
+        </div>
+        <div className="home-button-secondary">
+          <a className="button-primary" href={`/portfolio/`}>
+            View all my posts
+          </a>
         </div>
       </div>
     </Layout>

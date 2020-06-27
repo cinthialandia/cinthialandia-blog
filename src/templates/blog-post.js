@@ -7,7 +7,7 @@ export default function BlogPost({ data }) {
   const post = data.markdownRemark
   return (
     <Layout lang={post.fields.langKey}>
-      <div>
+      <div className="blog-page-posts">
         <h1 className="title-post">{post.frontmatter.title}</h1>
         {/* <div className="image-post">
           {post.frontmatter.featuredImage && (

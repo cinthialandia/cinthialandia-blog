@@ -7,6 +7,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: $accent;
+  margin: 0;
 }
 h1,
 h3 {
@@ -40,6 +41,11 @@ a {
 
 .button-primary {
   @include button($primary-color);
+  text-align: center;
+}
+
+.button-secondary {
+  @include button($secondary-color);
   text-align: center;
 }
 
@@ -95,6 +101,13 @@ nav > * {
   display: none;
 }
 
+.nav-button-mobile:focus {
+  outline: none;
+  outline-color: none;
+  outline-style: none;
+  outline-width: none;
+}
+
 .nav-button-container {
   display: flex;
   justify-content: center;
@@ -107,28 +120,31 @@ nav > * {
     flex-direction: column;
   }
 
+  header.open {
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav > * {
+      margin: 5px;
+    }
+
+    .lang-select {
+      display: flex;
+      margin: 5px;
+    }
+  }
+
   nav {
     display: none;
-  }
-
-  nav.visible {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav.visible > * {
-    margin: 5px;
   }
 
   .lang-select {
     display: none;
   }
 
-  .lang-select.visible {
-    display: flex;
-    margin: 5px;
-  }
   .nav-button-container {
     justify-content: space-between;
     padding: 0 10px;
