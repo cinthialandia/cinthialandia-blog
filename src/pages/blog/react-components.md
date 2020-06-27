@@ -106,6 +106,8 @@ class SayHello extends Component {
 
 When using a function component, we'll need the `useState` and `useEffect` hooks.
 
+For more information about lifecycles and functional components, [here](/blog/life-cyles-and-hooks/)
+
 #### Class components
 
 React components go through lifecycles of events, the most common on class components are:
