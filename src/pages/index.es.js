@@ -23,12 +23,14 @@ export default function Home({ data }) {
             <img className="bio-img-img" src={mecinthia} />
           </div>
           <div className="info-bio">
-            <h1>Hola, soy Cinthia!</h1>
+            <h1>Hola Mundo!</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-              provident veniam reiciendis tempore nostrum dolorem nihil, est
-              maiores, sapiente modi corrupti ipsum maxime voluptates voluptas
-              inventore iusto aperiam ullam soluta?
+              Bienvenido a mi blog, mi nombre es Cinthia Valero y soy una chica
+              venezolana que vive en Sydney, Australia. Comencé este blog para
+              documentar el proceso para convertirme en desarrollador web y al
+              mismo tiempo compartir con el mundo todo el conocimiento que he
+              aprendido durante este tiempo. Espero que disfruten este blog
+              tanto como me divertí haciéndolo.
             </p>
             <div>
               <a className="button-primary" href={`/portfolio/`}>

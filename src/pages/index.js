@@ -23,12 +23,13 @@ export default function Home({ data }) {
             <img className="bio-img-img" src={mecinthia} />
           </div>
           <div className="info-bio">
-            <h1>Hi, I'm Cinthia!</h1>
+            <h1>Hello World!</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-              provident veniam reiciendis tempore nostrum dolorem nihil, est
-              maiores, sapiente modi corrupti ipsum maxime voluptates voluptas
-              inventore iusto aperiam ullam soluta?
+              Welcome to my blog, my name is Cinthia Valero and I'm Venezuelan
+              girl living in Sydney Australia. I started this blog, to document
+              the process to become a web developer and at the same time share
+              with the world all the knowledge I have learned during this time.
+              I hope you will enjoy this blog as much as I had fun making it.
             </p>
             <div className="bio-buttons">
               <a className="button-primary" href={`/portfolio/`}>
