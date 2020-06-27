@@ -2,10 +2,15 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 1200px;
-  padding: 120px 40px;
+  padding: 40px;
   margin: 0 auto;
+  padding-bottom: 60px;
 }
 
 .portfolio-title {
   text-align: center;
+}
+
+.background-color-portfolio {
+  background-color: white;
 }

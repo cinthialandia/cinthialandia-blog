@@ -5,7 +5,12 @@ import "./layout.scss"
 import australiasvg from "./img/australia.svg"
 import spainsvg from "./img/spain.svg"
 import cinthialandia from "./img/logito-edit.png"
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faTimes, faBug } from "@fortawesome/free-solid-svg-icons"
+import {
+  faGithub,
+  faLinkedinIn,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
 
 const LangSelect = ({ lang }) =>
   lang === "es" ? (
@@ -62,6 +67,30 @@ export default function Layout({ children, lang }) {
         </div>
       </header>
       {children}
+      <div className="footer-container-background">
+        <div className="footer-container">
+          <a
+            href={`https://github.com/cinthialandia/cinthialandia-blog/pulls`}
+            target="_blank"
+          >
+            <FontAwesomeIcon icon={faBug} /> Submit on issue
+          </a>
+
+          <p>CINTHIALANDIA</p>
+
+          <div className="social-footer">
+            <a href={`https://github.com/cinthialandia`} target="_blank">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a href={`https://www.linkedin.com/in/cinthiaj/`} target="_blank">
+              <FontAwesomeIcon icon={faLinkedinIn} />
+            </a>
+            <a href={`https://twitter.com/_cinthialandia`} target="_blank">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

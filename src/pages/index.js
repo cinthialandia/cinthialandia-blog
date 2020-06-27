@@ -1,6 +1,6 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight, faBug } from "@fortawesome/free-solid-svg-icons"
 import {
   faGithub,
   faLinkedinIn,
@@ -53,17 +53,18 @@ export default function Home({ data }) {
             </div>
           </div>
         </div>
-
-        <h1 className="home-title">My latest projects</h1>
-        <div className="home-container-repository-small">
-          {data.allGithubRepositories.edges.map(node => (
-            <RepositorySmall key={node.node.name} repository={node.node} />
-          ))}
-        </div>
-        <div className="home-button-secondary">
-          <a className="button-secondary" href={`/portfolio/`}>
-            check all my projects
-          </a>
+        <div className="secondary-background">
+          <h1 className="home-title">My latest projects</h1>
+          <div className="home-container-repository-small">
+            {data.allGithubRepositories.edges.map(node => (
+              <RepositorySmall key={node.node.name} repository={node.node} />
+            ))}
+          </div>
+          <div className="home-button-secondary">
+            <a className="button-secondary" href={`/portfolio/`}>
+              check all my projects
+            </a>
+          </div>
         </div>
         <div className="big-social-container">
           <div className="big-social-link">
@@ -78,6 +79,7 @@ export default function Home({ data }) {
             </a>
           </div>
         </div>
+
         <h1 className="home-title">My latest posts</h1>
         <div className="home-container-post">
           {data.allMarkdownRemark.edges.map(({ node }) => (

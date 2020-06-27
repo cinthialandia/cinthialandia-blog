@@ -54,16 +54,18 @@ export default function Home({ data }) {
             </div>
           </div>
         </div>
-        <h1 className="home-title">Mi ultimos proyectos</h1>
-        <div className="home-container-repository-small">
-          {data.allGithubRepositories.edges.map(node => (
-            <RepositorySmall key={node.node.name} repository={node.node} />
-          ))}
-        </div>
-        <div className="home-button-secondary">
-          <a className="button-secondary" href={`/portfolio/`}>
-            Mira todos mis projectos
-          </a>
+        <div className="secondary-background">
+          <h1 className="home-title">Mi ultimos proyectos</h1>
+          <div className="home-container-repository-small">
+            {data.allGithubRepositories.edges.map(node => (
+              <RepositorySmall key={node.node.name} repository={node.node} />
+            ))}
+          </div>
+          <div className="home-button-secondary">
+            <a className="button-secondary" href={`/portfolio/`}>
+              Mira todos mis projectos
+            </a>
+          </div>
         </div>
         <div className="big-social-container">
           <div className="big-social-link">

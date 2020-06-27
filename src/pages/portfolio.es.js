@@ -8,10 +8,12 @@ export default function Portfolio({ data }) {
   return (
     <Layout lang="es">
       <h1 className="portfolio-title">Portafolio</h1>
-      <div className="container-portfolio">
-        {data.allGithubRepositories.edges.map(node => (
-          <Repository key={node.node.name} repository={node.node} />
-        ))}
+      <div className="background-color-portfolio">
+        <div className="container-portfolio">
+          {data.allGithubRepositories.edges.map(node => (
+            <Repository key={node.node.name} repository={node.node} />
+          ))}
+        </div>
       </div>
     </Layout>
   )

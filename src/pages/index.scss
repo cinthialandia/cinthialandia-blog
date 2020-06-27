@@ -32,7 +32,7 @@
 
 .home-title {
   text-align: center;
-  margin: 60px 0 25px;
+  padding: 60px 0 25px;
 }
 
 .index-container-bio {
@@ -91,7 +91,6 @@
   background-color: $primary-color;
   display: flex;
   justify-content: space-around;
-  margin-top: 60px;
 
   a {
     color: white;
@@ -102,6 +101,11 @@
 
 .big-social-container {
   background-color: $primary-color;
+}
+
+.secondary-background {
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 60px;
 }
 
 @media (max-width: 800px) {
