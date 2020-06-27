@@ -11,3 +11,7 @@
   max-width: 600px;
   height: auto;
 }
+
+.post-content {
+  overflow-wrap: break-word;
+}

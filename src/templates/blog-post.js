@@ -16,7 +16,10 @@ export default function BlogPost({ data }) {
             ></img>
           )}
         </div> */}
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          className="post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
       </div>
     </Layout>
   )
