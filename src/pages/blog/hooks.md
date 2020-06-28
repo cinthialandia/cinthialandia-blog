@@ -14,6 +14,8 @@ const [action, setAction] = useState("Hello!")
 
 The hook's syntax is a react API called `useState` that is a destructured array, wich their first value is a variable with the value's state, the second variable is a function that allows you update the state of the component to any value, all this is equalized to `useState` who sets de default state's value.
 
+## Why were the hooks created?
+
 ### Components with complicated logic make harder understand
 
 When maintaining components with different types of life cycles and extensive logic, those are more prone to bugs or inconsistencies, hooks divide into littler pieces of logic in functions base on how the data is related.

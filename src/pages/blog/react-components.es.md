@@ -106,6 +106,8 @@ class SayHello extends Component {
 
 Cuando usamos un componente funcional, debemos usar la sintaxis `useState` y `useEffects` hooks.
 
+Para mas información sobre componentes funcionales y ciclos de vida, [aquí](/es/blog/life-cyles-and-hooks/).
+
 #### Componentes clase
 
 Los componentes pasan tras muchos tipos de ciclos de vida y eventos, los más comunes son:
@@ -113,6 +115,8 @@ Los componentes pasan tras muchos tipos de ciclos de vida y eventos, los más co
 - **Mounting**
 - **Update**
 - **Unmount**
+
+Para mas información sobre componentes de clase y ciclos de vida, [aquí](/es/blog/life-cycles/).
 
 ### ¿Cual prefiero?
 

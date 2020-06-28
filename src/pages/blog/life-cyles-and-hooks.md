@@ -229,11 +229,11 @@ render(<App />, document.getElementById("root"))
 
 ### useEffect()
 
-`useEffect` hook es una función que te permite tener efectos secundarios en el componente funcional. En los componentes de clases tenemos los métodos de ciclos de vida `componentDidMount`, `componentDidUpdate` y `componentWillUnmount`, este hook engloba las funcionalidades de estos 3 métodos en los componentes funcionales.
+`useEffect` hook is a function that allows you to have side effects in a functional component. In class components we have life-cycle methods as`componentDidMount`,`componentDidUpdate`, and`componentWillUnmount`, this hook has the same functionality of all three methods in the functional component.
 
-En el ejemplo, tenemos el `useEffect`en el cual se está inicializando el el countdown, este nos regresa la cantidad de milisegundos faltantes y actualizamos el estado con la cantidad de milisegundos faltante y eliminamos todos los listener del componente, esta funcion cumple con los métodos `componentDidMount` y `componentWillUnmount`.
+In this example, we used the first `useEffect` and we started the countdown, this one gives us the number of milliseconds left and we update the state with that number, we also remove all the listeners in the component, this function is making all the functionality as `componentDidMount` and `componentWillUnmount`.
 
-En el próximo `useEffect`, estamos actualizando el estado con el tiempo faltante que se mostrará en pantalla, y este se actualizará cada vez que que el tiempo en milisegundos cambie, esta función, está realizando la misma funcion del metodo `componentDidUpdate`
+The next `useEffect`, updates the state with the time left which is going to show in the screen this function is going to update every time the milliseconds change, this function is making the same functionality of the method `componentDidUpdate`
 
 ```jsx
 import React, { Component, useState, useMemo, useEffect } from "react"

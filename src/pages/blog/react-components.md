@@ -112,9 +112,13 @@ For more information about lifecycles and functional components, [here](/blog/li
 
 React components go through lifecycles of events, the most common on class components are:
 
-- `Mounting`
-- `Update`
-- `Unmount`
+`Mounting`
+
+`Update`
+
+`Unmount`
+
+For more information about lifecycles and class components, [here](/blog/life-cycles/)
 
 ### Which one do I prefer?
 

@@ -12,7 +12,9 @@ Los hooks son funciones que te permiten mantener estado y reaccionar a ciclos de
 const [accion, setAccion] = useState("saludar")
 ```
 
-La sintaxis del hook es la siguiente, `useState` es una API de reactI la cual es un array desestructurado, que trae como primer valor un variable, donde se guardará el valor del estado, y una segunda variable que es una función que nos permite actualizar el estado a cualquier valor que queramos, todo esto es igualado al `useState` que nos facilita un valor por defecto del estado.
+La sintaxis del hook es la siguiente, `useState` es una API de react la cual es un array desestructurado, que trae como primer valor un variable, donde se guardará el valor del estado, y una segunda variable que es una función que nos permite actualizar el estado a cualquier valor que queramos, todo esto es igualado al `useState` que nos facilita un valor por defecto del estado.
+
+## ¿Por qué se crearon los hooks?
 
 ### Componentes con lógicas complicadas hace que sea más difícil de entender
 
@@ -24,15 +26,15 @@ cuando mantenemos componentes con distintos tipos de ciclos de vida y extensa l�
 
 ## Hooks y estados
 
-Hooks ha sido creados, para que los componentes funcionales puedan manejar un estado, y el mismo nos introduce en su sintaxis una nueva API llamada `useState`, la cual te permite adicionar un estado al componente funcional.
+Los Hooks han sido creados para que los componentes funcionales puedan manejar un estado, y el mismo nos introduce en su sintaxis una nueva API llamada `useState`, la cual te permite adicionar un estado al componente funcional.
 
-Para saber más información sobre hooks y el estado.
+Para mas información sobre componentes funcionales y estado, [aquí](/es/blog/state/).
 
 ## Hooks y ciclos de vida
 
-Hooks nos trae una nueva API para el manejo de los ciclos de vida, llamados `useEffect`, que sería la combinación de los ciclos de vida `componentDidMount`, `componentDidUpdate`, y `componentWillUnmountut`utilizados en componentes de clases.
+Hooks nos trae una nueva API para el manejo de los ciclos de vida, llamados `useEffect`, que sería la combinación de los ciclos de vida `componentDidMount`, `componentDidUpdate`,  y `componentWillUnmountut` utilizados en componentes de clases.
 
-Para saber más información sobre `hooks` y los cicos de vida.
+Para mas información sobre componentes funcionales y ciclos de vida, [aquí](/es/blog/life-cyles-and-hooks/).
 
 ## Reglas de Hooks
 
