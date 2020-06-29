@@ -4,58 +4,51 @@ featuredImage: hooks.png
 date: "2020-06-28"
 ---
 
-
-
 ## ¿Que es JSX?
 
 Es una sintaxis que se utiliza como extensión de javascript la cual es utilizada dentro de componentes react para describir cómo se debería de ver la UI.
 
 Es importante al utilizar JSX es importar react en cada archivo que utilice JSX, ya que cuando el código es compilado, este es transformado a elementos con extensión `.react`
 
-
-
 ```jsx
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from "react"
+import { render } from "react-dom"
 
 function App() {
-    return (
+  return (
+    <div>
       <div>
-        <div><img src="//logo.png" /></div>
-        <footer>Hi I'm footer</footer>
+        <img src="//logo.png" />
       </div>
-    );
-  }
+      <footer>Hi I'm footer</footer>
+    </div>
+  )
+}
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"))
 ```
 
-Este es un ejemplo de un componente escrito con JSX 
+Este es un ejemplo de un componente escrito con JSX
 
 ```jsx
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from "react"
+import { render } from "react-dom"
 
-var App =  React.createElement(
-  "div", 
+var App = React.createElement(
+  "div",
   null,
   React.createElement(
     "div",
     null,
-    React.createElement("img", {src: "./img/logo.png"})
+    React.createElement("img", { src: "./img/logo.png" })
   ),
-  React.createElement(
-    "footer",
-    null,
-    "Hi I'm footer"
-  )
-);
+  React.createElement("footer", null, "Hi I'm footer")
+)
 
-
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"))
 ```
 
-Este ejemplo es exactamente el mismo que el anterior, en donde podemos observar en que se convierte JSX cuando es compilado. 
+Este ejemplo es exactamente el mismo que el anterior, en donde podemos observar en que se convierte JSX cuando es compilado.
 
 ## ¿Para que fue creado JSX?
 
