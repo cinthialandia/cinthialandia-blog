@@ -34,10 +34,10 @@ export default function Home({ data }) {
               tanto como me divertí haciéndolo.
             </p>
             <div className="bio-buttons">
-              <a className="button-primary" href={`/portfolio/`}>
+              <a className="button-primary" href={`/es/portfolio/`}>
                 Mira mi trabajo
               </a>
-              <a className="home-button-visiting-blog" href={`/portfolio/`}>
+              <a className="home-button-visiting-blog" href={`/es/blog/`}>
                 o visita mi blog <FontAwesomeIcon icon={faArrowRight} />
               </a>
             </div>
@@ -74,7 +74,7 @@ export default function Home({ data }) {
             ))}
           </div>
           <div className="home-button-secondary">
-            <a className="button-secondary" href={`/portfolio/`}>
+            <a className="button-secondary" href={`/es/portfolio/`}>
               Mira todos mis projectos
             </a>
           </div>
@@ -111,7 +111,7 @@ export default function Home({ data }) {
           ))}
         </div>
         <div className="home-button-secondary">
-          <a className="button-primary" href={`/portfolio/`}>
+          <a className="button-primary" href={`/es/blog/`}>
             Mira todos mis posts
           </a>
         </div>

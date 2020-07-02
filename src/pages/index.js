@@ -36,7 +36,7 @@ export default function Home({ data }) {
               <a className="button-primary" href={`/portfolio/`}>
                 check my work
               </a>
-              <a className="home-button-visiting-blog" href={`/portfolio/`}>
+              <a className="home-button-visiting-blog" href={`/blog/`}>
                 or visit my blog <FontAwesomeIcon icon={faArrowRight} />
               </a>
             </div>
@@ -111,7 +111,7 @@ export default function Home({ data }) {
           ))}
         </div>
         <div className="home-button-secondary">
-          <a className="button-primary" href={`/portfolio/`}>
+          <a className="button-primary" href={`/blog/`}>
             View all my posts
           </a>
         </div>
