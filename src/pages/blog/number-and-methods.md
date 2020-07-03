@@ -37,11 +37,11 @@ console.log(isReallyInteger(2.5));
 
 ```
 
-In this example we have a function that receives a `param` as a number y this will be evaluated with the method `Number.isInteger()`, this will return the value `true` or `false`. In this case, the first example returns `true` and the second example `false`.
+In this example, we have a function that receives a `param` as a number and this will be evaluated with the method `Number.isInteger()`, this will return the value `true` or `false`. In this case, the first example returns `true` and the second example `false`.
 
 ### Number.parseFloat() 
 
-This method receives an argument (should be a` string`) and returns a floating-point number. If a number can’t be converted, it will return `NaN`.
+This method receives a string argument and returns a floating-point number. If a number can’t be converted, it will return `NaN`.
 
 ```js
 console.log(Number.parseFloat("djsbkjbas7823")) // console will print NaN
@@ -126,20 +126,20 @@ console.log(fixNumber(0.004));
 
 ```
 
-Como se puede observar en el ejemplo, tenemos una función que recibe un número como parámetro y este número será evaluado con el método `toFixed(number)`, en este caso estamos declarando solos 2 decimales, retornando así números con solo 2 decimales. 
+As you can observe in the example, we have a function that receives a number as a `param` and this number will be evaluated with the method `toFixed(number)`, in this case, we are setting just 2 decimals, that's why the example returns numbers with 2 decimals.
 
 ### ToString()
 
 Is a method that returns a string that represents a specific number. The method evaluates a number object and receives as `param` a radio number (which is optional).  
 
 ```js
-function rgbToHex(hex1, hex2, hex3) {
-  const hexOne = Number(hex1).toString(16).toUpperCase()
-  const hexTwo = Number(hex2).toString(16).toUpperCase()
-  const hexThree = Number(hex3).toString(16).toUpperCase()
+function rgbToHex(r,g,b) {
+  const hex1 = Number(r).toString(16).toUpperCase()
+  const hex2 = Number(g).toString(16).toUpperCase()
+  const hex3 = Number(b).toString(16).toUpperCase()
 
   
-  return (`${hexOne}${hexTwo}${hexThree}`); 
+  return (`${hex1}${hex2}${hex3}`); 
 }
 
 console.log(rgbToHex("255", "170", "187")); // console will print 'FFAABB'

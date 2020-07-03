@@ -41,7 +41,7 @@ En este ejemplo tenemos una función que recibe como parámetro un número y est
 
 ### Number.parseFloat() 
 
-Este método recibe como argumento (deberá ser un string) y retorna un número decimal. Si el número no puede ser convertido, este devolverá `NaN`. 
+Este método recibe como argumento un string y retorna un número decimal. Si el número no puede ser convertido, este devolverá `NaN`. 
 
 ```js
 console.log(Number.parseFloat("djsbkjbas7823")); // La consola imprimira NaN
@@ -73,10 +73,10 @@ console.log(Number.parseFloat("sdgdrg")); // La consola imprimira NaN
 console.log(Number("sdgdrg")); // La consola imprimira NaN
 
 console.log(Number.parseFloat("1.58")); // La consola imprimira 1.58
-console.log(Number("1.58")); // console will print 1.58
+console.log(Number("1.58")); //  La consola imprimira 1.58
 
 console.log(Number.parseFloat("25")); // La consola imprimira 25
-console.log(Number("25")); // console will print 25
+console.log(Number("25")); //  La consola imprimira 25
 
 console.log(Number.parseFloat("25.56djkbkbsd")); // La consola imprimira 25.56
 console.log(Number("25.56djkbkbsd")); // La consola imprimira NaN
@@ -117,27 +117,27 @@ function fixNumber(number) {
 }
 
 console.log(fixNumber(123.4566));
-// console will print: "123.46"
+//  La consola imprimira "123.46"
 
 console.log(fixNumber(0.004));
-// console will print: "0.00"
+//  La consola imprimira "0.00"
 
 ```
 
-As you can observe in the example, we have a function that receives a number as a `param` and this number will be evaluated with the method `toFixed(number)`, in this case, we are setting just 2 decimals, that's why the example returns numbers with 2 decimals.
+Como se puede observar en el ejemplo, tenemos una función que recibe un número como parámetro y este número será evaluado con el método `toFixed(number)`, en este caso estamos declarando solos 2 decimales, retornando así números con solo 2 decimales. 
 
 ### ToString()
 
 Es un método que retorna un string representando un número específico. El método evalúa un objeto número y recibe como parámetro el radio o base del mismo el cual es opcional. 
 
 ```js
-function rgbToHex(hex1, hex2, hex3) {
-  const hexOne = Number(hex1).toString(16).toUpperCase()
-  const hexTwo = Number(hex2).toString(16).toUpperCase()
-  const hexThree = Number(hex3).toString(16).toUpperCase()
+function rgbToHex(r,g,b) {
+  const hex1 = Number(r).toString(16).toUpperCase()
+  const hex2 = Number(g).toString(16).toUpperCase()
+  const hex3 = Number(b).toString(16).toUpperCase()
 
   
-  return (`${hexOne}${hexTwo}${hexThree}`); 
+  return (`${hex1}${hex2}${hex3}`); 
 }
 
 console.log(rgbToHex("255", "170", "187")); // consola imprimira  'FFAABB'
