@@ -9,7 +9,7 @@ import {
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Post from "../components/Post"
-import medesktop from "./img/IMG_8125.jpg"
+import medesktop from "./img/me-desktop.jpg"
 import memobile from "./img/me-mobile.jpg"
 import "./index.scss"
 import RepositorySmall from "../components/repositorySmall"
