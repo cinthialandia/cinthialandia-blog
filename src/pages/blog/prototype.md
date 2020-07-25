@@ -260,9 +260,9 @@ As you've seen, even if JavaScript now includes a `class` keyword (with `super` 
 
 In classical OOP, every object created also receives a copy of the methods and properties that the class defines.
 
-With prototypal OOP, objects don't get a copy but rather an object to another object that already has the implementation, and relies on "behavior delegation" to achieve the inheritance effect.
+With prototypal OOP, objects don't get a copy but rather a link to another object that already has the implementation, and relies on "behavior delegation" to achieve the inheritance effect.
 
-### You can add methods and properties in runtime to prototypes
+### You can add methods and properties to prototypes in runtime 
 
 In classical OOP, you can't add more properties or methods to a class in runtime. It all happens when you write and compile your code.
 
@@ -328,7 +328,6 @@ A more practical scenario is when extending classes, and the new class needs a d
 class Car {
   constructor(brand) {
     this.brand = brand
-    this.started = false
   }
 
   start() {
@@ -339,6 +338,7 @@ class Car {
 class Ferrari {
   constructor() {
     super("Ferrari")
+    this.started = false
   }
 
   start() {

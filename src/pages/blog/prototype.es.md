@@ -8,9 +8,9 @@ _Colaboración con [Gerardo Leal](https://www.linkedin.com/in/gdlm91/)_
 
 ## Clases en JavaScript
 
-En ES2015, la palabra `class` fue introducida para proveer una sintaxis más limpia al momento de crear objetos en javaScript y al mismo tiempo estar más familiarizado a otros lenguajes de programación `Object Oriented Programming (OOP)` como java o C++.
+En ES2015, el termino `class` fue introducido para proveer una sintaxis más limpia al momento de crear objetos en javaScript y al mismo tiempo que fuera  más familiar a otros lenguajes de programación `Object Oriented Programming (OOP)` como java o C++.
 
-En javaScript, la definición de una clase se ve asi:
+En javascript, la definición de una clase se ve asi:
 
 ```jsx
 class Car {
@@ -46,7 +46,7 @@ Pero en la práctica ambos trabajan de la misma manera, `class` es una función 
 
 ## Prototype
 
-La programación basada en `prototype` es un estilo de programación de `object-oriented` en la que es posible reutilizar el comportamiento (inheritance) mediante el uso de objetos existentes que sirven como “prototypes”. Entonces `class` (en su forma estricta) realmente nunca se define, sino que se crea un objeto y se reutiliza como la implementación para otros objetos.
+La programación basada en `prototype` es un estilo de programación orientada a objetos en la que es posible reutilizar el comportamiento (herencia) mediante el uso de objetos existentes que sirven como “prototipos”. Entonces una clase (en su forma estricta) realmente nunca se define, sino que se crea un objeto y se reutiliza como la implementación para otros objetos.
 
 Todo esto es posible gracias a un link especial entre objetos llamado `[[Prototype]].`
 
@@ -54,9 +54,9 @@ Todo esto es posible gracias a un link especial entre objetos llamado `[[Prototy
 
 ![scope showed as a building](./diagram-one.jpg)
 
-Cuando una función (o `class`) es definido, un objeto llamado `prototype object` es creado en memoria y es conectado a él vía la propiedad `.prototype`. Se crea también una conexión recíproca desde ese objeto hasta la función llamada propiedad `.constructor`.
+Cuando una función es definida, un objeto llamado `prototype object` es creado en memoria y es conectado a él vía la propiedad `.prototype`. Se crea también una conexión recíproca desde ese objeto hasta la función llamada propiedad `.constructor`.
 
-Como se puede observar en el ejemplo de la función, se puede interactuar directamente con ese objeto usando la propiedad `prototype`, en este ejemplo hemos declarado el método `start()` fuera de nuestro `Car.`
+Como se puede observar en el ejemplo de la función, se puede interactuar directamente con ese objeto usando la propiedad `prototype`, en este ejemplo hemos declarado el método `start()`  de nuestro `Car.`
 
 Con la sintaxis `class`, la implementación está escondida de nosotros, pero está ocurriendo exactamente el mismo proceso.
 
@@ -73,17 +73,17 @@ Cuando un nuevo objeto es creado usando `new Car(..)` una serie de operaciones s
 
 **1. Un objeto completamente nuevo es creado en memoria.**
 
-Este objeto se encuentra completamente vacío (no metodos, no propiedades).
+Este objeto se encuentra completamente vacío (sin metodos, sin propiedades).
 
 ![scope showed as a building](./diagram-two.jpg)
 
 **2. La conexión [[Prototype]] es creada .**
 
-En este punto el objeto es completamente conectado al `prototype object` de la función (o class) `Car`.
+En este punto el objeto es completamente conectado al `prototype object` de la función (o clase) `Car`.
 
 ![scope showed as a building](./diagram-three.jpg)
 
-**3. La función es ejecutada esta acción es llamada `constructor call` usando el nuevo objeto creado como valor del `this`.**
+**3. La función es ejecutada usando el nuevo objeto creado como valor del `this`. Esta acción es llamada `constructor call`**
 
 En este punto donde la propiedad del objeto es definida y asignada, es importante aclarar que cada propiedad es definida dentro de CADA objeto y no es parte de `property object` `Car`.
 
@@ -98,21 +98,21 @@ function Car(brand) {
   this.brand = brand
 }
 
-const bmw = Car.apply({}, "BMW") // {} is the newly created object in memory
+const bmw = Car.apply({}, "BMW") // {} Es el objeto nuevo creado en memoria i
 
-// it's not really what's happening but it serves to ilustrate
-// how the new object gets its properties defined.
+// No es lo que realmente esta pasando pero sirve para ilustrar
+// Como el nuevo objeto obtiene la propiedad definida?
 ```
 
 **4. Una referencia de este nuevo objeto es retornada.:**
 
-Y generalmente esa referencia es guardada en una variable (`bmw` and `bugatti` en este ejemplo) todo esto para que el mismo tenga acceso al objeto más tarde si es necesario.
+Y generalmente esa referencia es guardada en una variable (`bmw` y `bugatti` en este ejemplo) que se usa para acceder al objeto.
 
 ```jsx
 class Car {...}
 
-const bmw = new Car("BMW"); // stored reference to object with "BMW" brand
-const bugatti = new Car("Bugatti"); // stored reference to object with "Bugatti" brand
+const bmw = new Car("BMW"); // Se guarda una referencia en el objeto con la marca "BMW"
+const bugatti = new Car("Bugatti"); // Se guarda una referencia en el objeto con la marca "bugatti"
 ```
 
 ### Describiendo el **[[Prototype]] chain**
@@ -125,23 +125,25 @@ class Car {...}
 const bmw = new Car("BMW");
 const bugatti = new Car("Bugatti");
 
-bmw.start() // starting car of brand BMW
-bugatti.start() // starting car of brand Bugatti
+bmw.start() // comenzando car de la marca BMW 
+bugatti.start() // comenzando car de la marca BMW  Bugatti
 ```
 
 **1. Encontrando el método en el [[Prototype]] chain**
 
-Si vemos el diagrama y observamos al nuevo objeto creado, notaras que no se encuentra ningun metodo llamado `start`, solo se encuentra la propiedad `brand`, entonces ¿Como han podido ejecutar el método?
+![scope showed as a building](./diagram-four.jpg)
 
-Javascript tiene un comportamiento especial en los objetos cuando trata de obtener un metodo de ellos. Si no pueden encontrarlo, seguirán el `[[Prototype]] chain` hasta el nuevo objeto con el cual está conectado y buscará en él, el mismo continuará buscando de objeto en objeto hasta que consiga el método y se ejecute o se suceda un error.
+Si vemos el diagrama y observamos al nuevo objeto creado, nótaras que no se encuentra ningún método llamado `start`, solo se encuentra la propiedad `brand`, entonces ¿Como se ha podido ejecutar el método?
 
-Esto es lo que hace posible para `bmw` y `bugatti` poder usar el método `start()` de la propiedad del objeto `Car`
+Javascript tiene un comportamiento especial en los objetos cuando trata de obtener un metodo de ellos. Si no pueden encontrarlo, seguirá el `[[Prototype]] chain` hasta el el siguiente objeto con el cual está conectado y buscará en él, y continuará buscando de objeto en objeto hasta que consiga el método y se ejecute, o muiestre un error.
+
+Esto es lo que hace posible que `bmw` y `bugatti` puedan usar el método `start()` de la propiedad del objeto `Car`
 
 **2. Usando el objeto como valor del `this`.**
 
-La segunda parte de la magia es actualmente algo que vimos antes ¿Como la correcta `brand` es impresa en consola?
+La segunda parte de la magia es realmente algo que vimos antes ¿Como la correcta `brand` se muestra en consola?
 
-Como anteriormente explicamos en este [blog](/es/blog/this/), la regla `implict binding` es aplicada cuando la función es ejecutada como método de un objeto, ese objeto es usado como el valor de `this`.
+Como anteriormente explicamos en el de [this](/es/blog/this/), la regla `implict binding` dicta que cuando la función es ejecutada como método de un objeto, ese objeto es usado como el valor de `this`.
 
 Por lo tanto no importa donde el `[[Prototype]] chain` encuentre a la función, al haber sido llamado como método del objeto `bmw` o `bugatti`, el valor de `this` es correctamente aplicado.
 
@@ -149,9 +151,9 @@ Por lo tanto no importa donde el `[[Prototype]] chain` encuentre a la función, 
 
 ### El final del [[Prototype]] chain
 
-Ahora que sabemos como javascript encuentra un método o propiedad en el `[[Prototype]] chain` , pero ¿Como termina este comportamiento?\*\*
+Ya sabemos como javascript encuentra un método o propiedad en el `[[Prototype]] chain` , pero ¿Cuando termina este comportamiento?
 
-Hay una clase que técnicamente es la clase original llamada `Object` con (O mayúscula) y tiene su propio `prototype object`, al cual todos los objetos de javascript están conectados, directa o indirectamente a este objeto a través del `[[Prototype]] chain.`
+Hay una clase que técnicamente es la clase original llamada `Object`  (con O mayúscula) y tiene su propio `prototype object`, al cual todos los objetos de javascript están conectados, directa o indirectamente a este objeto a través del `[[Prototype]] chain.`
 
 Este `objeto` tiene una colección de métodos y propiedades que podrían ser familiares:
 
@@ -161,7 +163,7 @@ Por lo tanto la búsqueda en el `[[Prototype]] chain` termina cuando este encuen
 
 ![scope showed as a building](./diagram-six.jpg)
 
-Todos los demás objetos primitivos como `functions`, `strings` or `numbers` están conectados a este objeto original también.
+Todos los demás objetos primitivos como `Functions`, `Strings` or `Numbers` están conectados a este objeto original también.
 
 ## Prototypal Inheritance
 
@@ -182,15 +184,15 @@ class Car {
 
 class Ferrari extends Car {
   constructor(color) {
-    // calling the constructor method of class Car. All Ferrari are of brand "Ferrari"
+    // Llamando el metodo constructor de la clase car . Todo los ferrari son brand "Ferrari"
     super("Ferrari")
 
-    // throw an error if setting an invalid color
+    // Es mostrado un error si setea un color invalido
     if (color !== "Yellow" && color !== "Red") {
       throw new Error("Ferrari should only be of color yellow or red...")
     }
 
-    this.color = color // otherwise, set the color.
+    this.color = color // De otra manera, se setea el color
   }
 
   printColor() {
@@ -199,11 +201,11 @@ class Ferrari extends Car {
 }
 
 const ferrari = new Ferrari("Red")
-ferrari.start() // starting car of brand Ferrari
-console.printColor() // This Ferrari is of color Red
+ferrari.start() // Comenzando el car de brand ferrari 
+console.printColor() // Este ferrari es de color rojo 
 ```
 
-Probablemente estás tentando a pensar que extendiendo la `class Car`, estas también creando una copia de todos sus métodos y propiedades y agregándole a `Ferrari`. Pero no estamos es realizando una conexión entre los objetos.
+Probablemente estás tentando a pensar que extendiendo la `class Car`, estas también creando una copia de todos sus métodos y propiedades y agregándole a `Ferrari`. Pero no, estamos es realizando una conexión entre los objetos.
 
 ![scope showed as a building](./diagram-seven.jpg)
 
@@ -223,18 +225,18 @@ Car.prototype.start = function () {
 }
 
 function Ferrari(color) {
-  Car.call(this, "Ferrari") // Constructor call to also initialize whatever Car does.
+  Car.call(this, "Ferrari") // La llamada del constructor tambien inicializa lo que hace el car
 
-  // throw an error if setting an invalid color
+  // Muestra un error al setear un color invalido
   if (color !== "Yellow" && color !== "Red") {
     throw new Error("Ferrari should only be of color yellow or red...")
   }
 
-  this.color = color // otherwise, set the color.
+  this.color = color // si no setea el color
 }
 
-// Object.create creates an empty object, and link it to a given object
-// Kind of like step 1 and 2 of calling `new`.
+// Object.create Crea un objeto vacio y lo conecta a un objeto
+// Se conecta paso 1 y paso 2 llamando new 
 Ferrari.prototype = Object.create(Car.prototype)
 
 Ferrari.prototype.printColor = function () {
@@ -242,8 +244,8 @@ Ferrari.prototype.printColor = function () {
 }
 
 const ferrari = new Ferrari("Red")
-ferrari.start() // starting car of brand Ferrari
-console.printColor() // This Ferrari is of color Red
+ferrari.start() // comenzando car de la brand ferrari
+console.printColor() // Este ferrari es rojo 
 ```
 
 ## Classical OOP vs Prototypal
@@ -260,13 +262,13 @@ Como ha visto, incluso si JavaScript ahora incluye una palabra clave `class` (co
 
 En la OOP clásica, cada objeto creado también recibe una copia de los métodos y propiedades que define la clase.
 
-Con el prototipo de OOP, los objetos no obtienen una copia, sino un objeto a otro objeto que ya tiene la implementación, y se basa en la "delegación de comportamiento" para lograr el efecto de herencia.
+Con el prototipo de OOP, los objetos no obtienen una copia, sino un link a otro objeto que ya tiene la implementación, y se basa en la "delegación de comportamiento" para lograr el efecto de herencia.
 
 ### Puede agregar métodos y propiedades en tiempo de ejecución a prototipos
 
 En la OOP clásica, no puede agregar más propiedades o métodos a una clase en tiempo de ejecución. Todo sucede cuando escribes y compilas tu código.
 
-En prototypal OOP, puede agregar más métodos y propiedades a una clase en tiempo de ejecución, y todos los objetos vinculados a eso también tendrán acceso a estas nuevas propiedades / métodos:
+En prototypal OOP, puede agregar más métodos y propiedades a una clase en tiempo de ejecución, y todos los objetos vinculados al objeto de la clase también tendrán acceso a estas nuevas propiedades / métodos:
 
 ```jsx
 class Car {
@@ -283,13 +285,13 @@ function addStop() {
   }
 }
 
-// ... anywhere else
+// ...
 
 addStop()
 
-// and now bmw has that new method
+// Ahora bmw tiene el nuevo metodo
 
-bmw.stop() // stoping car of brand BMW.
+bmw.stop() // se para el car de la brand BMW
 ```
 
 ## Técnicas OOP con prototype
@@ -311,14 +313,14 @@ class Car {
 
 const ferrari = new Car("Ferrari")
 
-// method shadowing
+// Metodo shadowing
 ferrari.start = function () {
   this.start()
   console.log("FERRARI BABY!!!")
 }
 
 ferrari.start()
-// starting car of brand Ferrari
+// Comenzado el car de la brand Ferrari 
 // FERRARI BABY!!!
 ```
 
@@ -328,7 +330,6 @@ Un escenario más práctico es cuando se extienden las clases, y la nueva clase 
 class Car {
   constructor(brand) {
     this.brand = brand
-    this.started = false
   }
 
   start() {
@@ -339,6 +340,7 @@ class Car {
 class Ferrari {
   constructor() {
     super("Ferrari")
+    this.started = false
   }
 
   start() {
@@ -349,7 +351,7 @@ class Ferrari {
 
 const ferrari = new Ferrari()
 
-ferrari.start() // starting car of brand ferrari
+ferrari.start() // Comenzado el car de la brand Ferrari 
 ferrari.started // true
 ```
 
