@@ -7,6 +7,12 @@ module.exports = {
     title: `Cinthialandia`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-162255568-1",
+      },
+    },
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
