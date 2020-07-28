@@ -6,6 +6,7 @@ import {
   faLinkedinIn,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons"
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Post from "../components/Post"
