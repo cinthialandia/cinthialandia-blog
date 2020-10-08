@@ -48,6 +48,7 @@ module.exports = {
               showLineNumbers: true,
             },
           },
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
@@ -92,6 +93,9 @@ module.exports = {
                   node {
                     name
                     url
+                    owner {
+                      login
+                    }
                     homepageUrl
                     description
                     openGraphImageUrl
@@ -104,6 +108,21 @@ module.exports = {
                           }
                         }
                       }
+                    }
+                  }
+                }
+              }
+              repositoriesContributedTo(first: 100, includeUserRepositories: false) {
+                edges {
+                  node {
+                    createdAt
+                    description
+                    homepageUrl
+                    name
+                    openGraphImageUrl
+                    url
+                    owner {
+                      login
                     }
                   }
                 }

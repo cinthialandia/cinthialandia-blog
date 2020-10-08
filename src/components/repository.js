@@ -1,10 +1,11 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-
 import "./repository.scss"
+import { faUserFriends } from "@fortawesome/free-solid-svg-icons"
 
 const Repository = ({ repository }) => {
+  console.log()
   return (
     <div className="repository-container">
       <div className="repository-photo">
@@ -24,6 +25,12 @@ const Repository = ({ repository }) => {
         </div>
         <div>
           <h2 className="repository-name">{repository.name}</h2>
+          {repository.owner.login !== "cinthialandia" ? (
+            <p style={{ color: "#CE2380" }}>
+              <FontAwesomeIcon icon={faUserFriends} />
+              {` I contributed with ${repository.owner.login} on the creation of this project.`}
+            </p>
+          ) : null}
           <p className="repository-description">{repository.description}</p>
         </div>
         <a

@@ -1,210 +1,444 @@
 ---
-title: Props
+title: What are props in react and how to use them with typescript? 
 featuredImage: props.png
-date: "2020-05-21"
+date: "2020-10-08"
 ---
 
-## What are props in react?
+## But first, What are props? 
 
-They are a pattern to share information between a father component and a children component, where the father component sets attributes and sent those to the children as an object. It's important to know this works just in one way, it means the father can share information with the children but not another way around.
+Is a pattern to share information between a father component and a child component, where the father component sets attributes and sends them to the child component as an object. Is important to know that this patter works in a unilateral way, it means that the information is just shared between father to child and not in the other way. 
 
-## How to use props?
+## How to use props? 
 
-As we said previously, props are used for components in React in the same way, but the syntax to use them its a little different and depends on the type of the component are you using.
+Props are used for components in react, but the syntax will be vary depending on the type of the component. 
 
-### Props in class components
+For the following examples, we will use them in functional components. At the end of the blog we will do the same examples but with class components.
 
-The class component receive props as a properties of the component instance called `props`, and you can access them using the syntax `this.props`
+### Props father to child
 
-```jsx
-import React, { Component } from "react"
-import { render } from "react-dom"
+We have the example of 2 files called `App` and `Children` where the app will be the father component and the children component will be the child component. In our component, we declared an object called `information`, a function that makes a sum and 2 variables con strings values. 
 
-class Content extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <h2>{this.props.title}</h2>
-        <p>{this.props.content}</p>
-      </React.Fragment>
-    )
-  }
-}
-
-class App extends Component {
-  render() {
-    return <Content title="hello" content="Hello World" num={15} />
-  }
-}
-
-render(<App />, document.getElementById("root"))
-```
-
-In this example, we have the app component (father) which is rendering the content component (children). The component sends those props to the exact component that will be used. To access them, it's necessary to write the "this" word.
-
-### Props in functional components
-
-The functional component receives props as the first parameter in the function.
+We declared the component child `Children` as part of the render of the component and assign attributes ( any valid name for HTML attributes) all this will be equal to the variable o function to send as a prop. 
 
 ```jsx
-import React, { Component } from "react"
-import { render } from "react-dom"
-
-const Content = ({ title, content }) => (
-  <React.Fragment>
-    <h2>{title}</h2>
-    <p>{content}</p>
-  </React.Fragment>
-)
-
-const App = () => {
-  return <Content title="hello" content="Hello World" />
+// App.js
+import React from "react";
+import Children from "./Children";
+import "./style.css";
+ 
+export default function App() {
+  const information = { number: 25, name: "props" };
+ 
+  const funSum = num => {
+    return num + 2;
+  };
+  const title = "Hello guys I'm sending props!! 👑";
+  const content = "ohh another prop this is good!!";
+  return (
+    <>
+      <Children
+        title={title}
+        content={content}
+        information={information}
+        sum={funSum}
+      />
+    </>
+  );
 }
-
-render(<App />, document.getElementById("root"))
 ```
 
-In the example, the app component (father) sends props to content components (children) and they are received as parameters from the function, in this case, we are doing deconstruction and taking the values that we need.
+The functional component `Children` receive props as the first parameter of the function as an object, each name of the property of this object set as an attribute in the father component will be the name of the prop in the child component. A common practice is to deconstruct the received object.
 
-> Note: Props can't modify, it means the information that you send is in a read-only state.
+```js
+// Chindren.js
+import React from "react";
+import "./style.css";
+ 
+export default function Children({ title, content, information, sum }) {
+  console.log(sum(5)); // 7
+ 
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>{content}</p>
+      <p>{information.number}</p>
+      <p>{information.name}</p>
+    </div>
+  );
+}
+```
+
+### Giving us as a result:
+
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/one.jpg)
+
+If you want to check the example in real life, click in this link! https://stackblitz.com/edit/props-one?file=src/Children.js
+
+### Props child to father
+
+Yes, you are reading well as I said before props just work in a unilateral way a send information just from the father component to the child component, but there is a way with props to send information from the child component to the father component and is using callbacks!!!
+
+Having an example from before, we declared an input that asks you your name, and at the same time, you are writing your name this will be showing under the input the name you wrote. but this will be rendered from the `App` component. 
+
+In this example, in the App component, we declared a state where are we going saving the name that will receive from the child component to be used for the app component, after this is declared a function that is sent as a prop to our child component under the name `onChange`. And for the last is rendered a message with the name written.
+
+```jsx
+import React, {useState} from "react";
+import Children from "./Children";
+import "./style.css";
+ 
+export default function App() {
+  const [name, setName] = useState("")
+ 
+  const handleNameOnChange = (n) => {
+    setName(n)
+  };
+  return (
+    <>
+      <Children
+        onChange={handleNameOnChange}
+      />
+      <p> Your name is :{name}</p>
+    </>
+  );
+}
+```
+
+On another hand, we have the `children` component that received as a parameter the function `onChange`  there is an input in the render component that receives an event handler. In the function called `handleChange` that receives the event of the written name is here where the magic happens, because we use the function from the props and we assign as an argument the information of the event that will be executed in our component app. 
+
+```jsx
+import React from "react";
+import "./style.css";
+ 
+export default function Children({ onChange }) {
+  const handleChange = (e) => {
+    onChange(e.target.value)
+  }
+ 
+  return (
+    <div>
+      <label>name</label>
+     <input type="text" id="fname" name="fname" onChange={handleChange} />
+    </div>
+  );
+}
+```
+
+### Giving us as a result:
+
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/two.gif)
+
+If you want to check the example in real life, click in this link!!!  https://stackblitz.com/edit/two-props?file=src/Children.js
+
+
 
 ## Props and spread syntax
 
-Something we need to pass a more that one attributes to another component, so for those cases, we can use the JavaScript operator spread.
+There are cases when you need to pass the same props through under levels on these cases you can use the syntax spread, but you have to have in mind that just work if that you want to send is an object o can be in an object. 
 
-```jsx
-import React, { Component, useState } from "react"
-import { render } from "react-dom"
+in this example, we have in the father component `App` a series of variables that contain the names of the characters of friends, but this will be rendered for the direct child component and the `childrenTwo` component is the child of the child (yes kind of complex)
 
-const Content = ({ title, content }) => (
-  <React.Fragment>
-    <h2>{title}</h2>
-    <p>{content}</p>
-  </React.Fragment>
-)
-
-const App = props => {
-  console.log(props)
-
-  const { name, ...restProps } = props
+```js
+import React, { useState } from "react";
+import Children from "./Children";
+import "./style.css";
+ 
+export default function App() {
+  const nameOne = "Rachel"
+  const nameTwo = "Ross"
+  const nameThree = "Monica"
+  const nameFour = "Chandler"
+  const nameFive = "Joey"
+ 
   return (
-    <React.Fragment>
-      <p>{name}</p>
-      <Content {...restProps} />
-    </React.Fragment>
-  )
+    <>
+    <div>Friends 👩🏻👱🏻‍♀️👩🏽🧑🏻👦🏻👨🏻‍🦱</div>
+      <Children one={nameOne} two={nameTwo} three={nameThree} four={nameFour} five={nameFive} />
+    </>
+  );
 }
-
-render(
-  <App title="hello" content="Hello from props" name="Gerardo" />,
-  document.getElementById("root")
-)
 ```
 
-In this example, our App component (father) is receiving props from another component and this case we made a deconstruction to obtain some values from the object and we used spread to save the others objects' values, which are going to be used in the content component (children)
+Now in our component `Children` we received those props as an (object) and we deconstruct the object props to save in another variable the rest of the object that will be sent to the `ChildrenTwo` component. In the object `Children` we rendered the first two names and declared child `ChildrenTwo` component turning `Children` as the component father. 
 
-```jsx
-import React, { Component, useState } from "react"
-import { render } from "react-dom"
-
-const Content = ({ title, content }) => (
-  <React.Fragment>
-    <h2>{title}</h2>
-    <p>{content}</p>
-  </React.Fragment>
-)
-
-const App = () => {
-  const [state] = useState({
-    title: "hello",
-    content: "Hello world from state",
-  })
-
+```js
+import React from "react";
+import ChildrenTwo from "./ChildrenTwo";
+import "./style.css";
+ 
+export default function Children(props) {
+  const { one, two, ...restProps } = props;
+ 
   return (
-    <React.Fragment>
-      <Content {...state} />
-    </React.Fragment>
-  )
+    <div>
+      <p>{props.one}</p>
+      <p>{props.two}</p>
+      <ChildrenTwo {...restProps} />
+    </div>
+  );
 }
-
-export default App
-
-render(<App />, document.getElementById("root"))
 ```
 
-In this example we are using the state, the App component (father) pass to content component (children), the state as a props (object).
+In the component child `ChindrenTwo` we received the props object and rendered the missing names. 
 
-```jsx
-import React, { Component, useState } from "react"
-import { render } from "react-dom"
+### Giving us as a result:
 
-const Content = ({ title, content }) => (
-  <React.Fragment>
-    <h2>{title}</h2>
-    <p>{content}</p>
-  </React.Fragment>
-)
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/three.jpg)
 
-const App = () => {
-  const obj = {
-    title: "hello",
-    content: "Helo world",
+If you want to check the example in real life, click in this link!!!  https://stackblitz.com/edit/props-three?file=src/ChildrenTwo.js
+
+## Props with default value
+
+In some cases, we want the props of the component to have a default value that will be used if the father component doesn't send information to the child component. 
+
+In this example, we have the father component `App`  that rendered a button that when it clicked it will show a phrase but by defect will show another phrase. 
+
+```js
+import React, { useState } from "react";
+import Children from "./Children";
+import "./style.css";
+ 
+export default function App() {
+ 
+  const [state, setState] = useState()
+ 
+  const handleClick = () => {
+    setState(true)
   }
+ 
+  return (
+    <>
+    <button onClick={handleClick}>Click me!!! 🍕</button>
+      <Children state={state} />
+    </>
+  );
+}
+```
+
+The rendered of this phrase is in the child component `Children` that it will receive the props value `true` and will print a phrase, if this is not received, the value will be by default `false`.
+
+```js
+import React from "react";
+import ChildrenTwo from "./ChildrenTwo";
+import "./style.css";
+ 
+export default function Children({state = false}) {
+ 
+  return (
+    <div>
+    {state ?  <p>On!!! 😮</p> :  <p>Off!!! 😴</p>}
+    </div>
+  );
+}
+```
+
+### Giving us as a result:
+
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/four.gif)
+If you want to check the example in real life, click in this link!!!  https://stackblitz.com/edit/props-four?file=src%2FChildren.js
+
+### Another way to assign props by defect
+
+Using the syntax `defaultProps` in the last example the `App` component will be declared as the same. but at the moment to receive the prop the `Children` component is declared the name of the component follow by a dot and the `defaultProps`  syntax,  and declared the object where we assign the value by default of the properties.  Important to know this will be declared outside of the child component. 
+
+```js
+import React from "react";
+import "./style.css";
+ 
+export default function Children({state}) {
+  return (
+    <div>
+    {state ?  <p>On!!! 😮</p> :  <p>Off!!! 😴</p>}
+    </div>
+  );
+}
+ 
+   Children.defaultProps = {
+    state: false
+  }
+```
+
+### Giving us as a result:
+
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/five.gif)
+
+If you want to check the example in real life, click in this link!!!  https://stackblitz.com/edit/props-five?file=src/Children.js
+
+## Props and typescript
+
+To use props in react with typescripts necessary write more code and declare interfaces, so we need to go step by step.  We must clarify that in this part of the blog we will be using the same previously examples and were just explain the typescript part. 
+
+### Props father to child
+
+As a father component is not necessary to declare something extra for typescript. But in the child component is necessary to declare an interface for the props we are going to receive and the type of each one, as an addition, we need to declare in the function component the syntax `React.FC<Props>`, that tells to typescript that we have a functional component and its receiving `Props` 
+
+```typescript
+import React from "react";
+import "./style.css";
+
+interface Props {
+  title: string,
+  content: string,
+  information: {number: number, name: string}
+  sum: (n: number) => number
+}
+
+const Children:  React.FC<Props> = ({ title, content, information, sum }) => {
+  console.log(sum(5)); // 7
 
   return (
-    <React.Fragment>
-      <Content {...obj} />
-    </React.Fragment>
-  )
+    <div>
+      <h1>{title}</h1>
+      <p>{content}</p>
+      <p>{information.number}</p>
+      <p>{information.name}</p>
+    </div>
+  );
 }
 
+export default Children
+```
+
+### Giving us as a result:
+
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/six.jpg)
+If you want to check the example in real life, click in this link!!!  https://stackblitz.com/edit/props-one-typscrit?file=Children.tsx
+
+### Props child to father
+
+Taking a previous example of the input, the father component `App` is the one that is sending the props it's not necessary to add something for typescript. We need to add the interface for the child component `Children`  we declared the function `onChange` and add the syntax to the functional component for typescript.  As you can see in this example we are not doing any changes for the father component because the component its receiving the information by a callback but sending this function as a props. 
+
+```typescript
+import React from "react";
+import "./style.css";
+ 
+interface Props {
+  onChange: (n: string) => void;
+}
+ 
+const Children: React.FC<Props> = ({ onChange }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e.target.value);
+  };
+ 
+  return (
+    <div>
+      <label>name</label>
+      <input type="text" id="fname" name="fname" onChange={handleChange} />
+    </div>
+  );
+};
+ 
+export default Children;
+```
+
+### Giving us as a result:
+
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/seven.gif)
+If you want to check the example in real life, click in this link!!!  https://stackblitz.com/edit/props-two-typescrit?file=Children.tsx
+
+## Props and class components
+
+### Props father to child
+
+The class components receive props as properties of the instance of the component and it could access to them using the syntax `this.props`
+
+We have the previous example but this time with class components and props will be sent in the same way to the child component. 
+
+```typescript
+import React from "react";
+import Children from "./Children";
+import "./style.css";
+ 
+class App extends React.Component {
+  state = {
+    information: { number: 25, name: "props" },
+    title: "Hello guys I'm sending props!! 👑",
+    content: "ohh another prop this is good!!"
+  };
+ 
+  funSum = num => {
+    return num + 2;
+  };
+  render() {
+    return (
+      <div>
+        <Children
+          title={this.state.title}
+          content={this.state.content}
+          information={this.state.information}
+          sum={this.funSum}
+        />
+      </div>
+    );
+  }
+}
+ 
 export default App
-
-render(<App />, document.getElementById("root"))
 ```
 
-In this example, we can see the App component (father), declare an object with some values which are passed as a props to content component (children).
+In the component `Children`  who receive the props, it will receive those as properties of the class and they don't have to be extracted from any object. We declared the props with the keyword `this` (magic) which one will be rendered.  
 
-## Props with a default value
+```typescript
+import React from "react";
+import "./style.css";
+ 
+class Children extends React.Component {
+  render() {
+    console.log(this.props.sum(5)); // 7
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        <p>{this.props.content}</p>
+        <p>{this.props.information.number}</p>
+        <p>{this.props.information.name}</p>
+      </div>
+    );
+  }
+}
+ 
+export default Children;
+```
 
-In some cases, if you want to pass props as a default value you can do this in this way.
+### Giving us as a result:
 
-```tsx
-import React, { Component } from "react"
-import { render } from "react-dom"
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/eigth.jpg)
+If you want to check the example in real life, click in this link!!!  https://stackblitz.com/edit/props-one-class?file=src%2FChildren.js
 
+## Props and typescript in class components 
+
+In the father component `App` we declared the props with no extra. But in the child component `children` we declared the interface whit the props as properties and their types, we modify the syntax of the class component adding `<Props>`  and declared the props with the keyword `this` (magic!).
+
+```typescript
+import React from "react";
+import "./style.css";
+ 
 interface Props {
-  name?: string
+  title: string;
+  content: string;
+  information: { number: number; name: string };
+  sum: (n: number) => number;
 }
-
-const MyComponent: React.FC<Props> = ({ name = "Gerardo" }) => (
-  <p>Hello {name}</p>
-)
-
-const App = () => <MyComponent />
-
-render(<App />, document.getElementById("root"))
+ 
+class Children extends React.Component<Props> {
+  render() {
+    console.log(this.props.sum(5)); // 7
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        <p>{this.props.content}</p>
+        <p>{this.props.information.number}</p>
+        <p>{this.props.information.name}</p>
+      </div>
+    );
+  }
+}
+ 
+export default Children;
 ```
 
-In this example, we have a functional component where received a name as a props, in this case, we made a deconstruction to get the value and set their default value, in this case, "Gerardo". `MyComponent` (children) its no receiving nothing from the App component (father), so the value for default will be "Gerardo".
+### Giving us as a result:
 
-> Note: In this case, we are using typescript, so if we don't want to have any problem, we should make de interface normally and set a `?` in the key of the value, with this we are saying, names value is no obligatory.
+![scope showed as a building](C:/Users/aihtn/Dev/cinthialandia/src/pages/blog/nine.jpg)
+If you want to check the example in real life, click in this link!!!  https://stackblitz.com/edit/props-typscrit-class?file=Children.tsx
 
-```tsx
-import React, { Component } from "react"
-import { render } from "react-dom"
-
-interface Props {
-  name?: string
-}
-
-const MyComponent: React.FC<Props> = ({ name }) => <p>Hello {name}</p>
-MyComponent.defaultProps = {
-  name: "Gerardo",
-}
-const App = () => <MyComponent />
-
-render(<App />, document.getElementById("root"))
-```
-
-In this example, we have an App component (father) and is not sending any props so we use the `default props` syntax and declare the name and its value as a default.

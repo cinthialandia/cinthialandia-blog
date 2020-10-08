@@ -40,6 +40,9 @@ export const query = graphql`
           openGraphImageUrl
           url
           createdAt
+          owner {
+            login
+          }
         }
       }
     }
