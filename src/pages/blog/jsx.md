@@ -1,66 +1,62 @@
 ---
 title: JSX
-featuredImage: hooks.png
+featuredImage: jsx.png
 date: "2020-06-28"
-
 ---
 
-## What is JSX? 
+## What is JSX?
 
-It is a syntax used as a JavaScript extension in react components to described how it is going to look like the UI. 
+It is a syntax used as a JavaScript extension in react components to described how it is going to look like the UI.
 
 Is important to know that when you use JSX you must import `react` in all files where you are using JSX because when the code will compile, that syntax will be transformed to an element with `React.extension`
 
 ```jsx
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from "react"
+import { render } from "react-dom"
 
 function App() {
-    return (
+  return (
+    <div>
       <div>
-        <div><img src="//logo.png" /></div>
-        <footer>Hi I'm footer</footer>
+        <img src="//logo.png" />
       </div>
-    );
-  }
+      <footer>Hi I'm footer</footer>
+    </div>
+  )
+}
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"))
 ```
 
 This example is a react component with JSX
 
 ```jsx
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from "react"
+import { render } from "react-dom"
 
-var App =  React.createElement(
-  "div", 
+var App = React.createElement(
+  "div",
   null,
   React.createElement(
     "div",
     null,
-    React.createElement("img", {src: "./img/logo.png"})
+    React.createElement("img", { src: "./img/logo.png" })
   ),
-  React.createElement(
-    "footer",
-    null,
-    "Hi I'm footer"
-  )
-);
+  React.createElement("footer", null, "Hi I'm footer")
+)
 
-
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"))
 ```
 
-This example is exactly the same that the last one, there we can observe what is JSX converted when it is compiled. 
+This example is exactly the same that the last one, there we can observe what is JSX converted when it is compiled.
 
-## What is the purpose of this syntax? 
+## What is the purpose of this syntax?
 
-This syntax was created mainly under the concept that all react components are pieces of logic that make a function, and you can share information between them, knowing this, with this syntax we can create logic with JS, HTML5, and CSS in just one component and not have the necessity to maintain all files in different parts of our code. 
+This syntax was created mainly under the concept that all react components are pieces of logic that make a function, and you can share information between them, knowing this, with this syntax we can create logic with JS, HTML5, and CSS in just one component and not have the necessity to maintain all files in different parts of our code.
 
-## How does this work? 
+## How does this work?
 
-JSX is used inside in our react component where you declare all the components that will be rendered, for this you can write any JavaScript expression between curly braces and be used. 
+JSX is used inside in our react component where you declare all the components that will be rendered, for this you can write any JavaScript expression between curly braces and be used.
 
 ```jsx
 import React from "react"
@@ -93,7 +89,7 @@ function getName(user) {
 
 ## Attributes with JSX
 
-Writing an attribute with a literal string value is the same using quotes, but if we want to write a JavaScript expression we must always use curly braces. 
+Writing an attribute with a literal string value is the same using quotes, but if we want to write a JavaScript expression we must always use curly braces.
 
 ```jsx
 const element = <div className="photo-banner"></div>
@@ -111,7 +107,7 @@ Note: In React DOM, we use property names with camelCase and we have some change
 
 ## Children and JSX
 
-If the tag in your code is empty, you have the possibility of the self-close tag. 
+If the tag in your code is empty, you have the possibility of the self-close tag.
 
 ```jsx
 const photo = <img src={urlPhoto} />
@@ -127,4 +123,3 @@ const element = (
   </div>
 )
 ```
-

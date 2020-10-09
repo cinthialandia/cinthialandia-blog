@@ -1,6 +1,6 @@
 ---
 title: Prototype
-featuredImage: props.png
+featuredImage: prototype.png
 date: "2020-07-24"
 ---
 
@@ -8,7 +8,7 @@ _Colaboración con [Gerardo Leal](https://www.linkedin.com/in/gdlm91/)_
 
 ## Clases en JavaScript
 
-En ES2015, el termino `class` fue introducido para proveer una sintaxis más limpia al momento de crear objetos en javaScript y al mismo tiempo que fuera  más familiar a otros lenguajes de programación `Object Oriented Programming (OOP)` como java o C++.
+En ES2015, el termino `class` fue introducido para proveer una sintaxis más limpia al momento de crear objetos en javaScript y al mismo tiempo que fuera más familiar a otros lenguajes de programación `Object Oriented Programming (OOP)` como java o C++.
 
 En javascript, la definición de una clase se ve asi:
 
@@ -56,7 +56,7 @@ Todo esto es posible gracias a un link especial entre objetos llamado `[[Prototy
 
 Cuando una función es definida, un objeto llamado `prototype object` es creado en memoria y es conectado a él vía la propiedad `.prototype`. Se crea también una conexión recíproca desde ese objeto hasta la función llamada propiedad `.constructor`.
 
-Como se puede observar en el ejemplo de la función, se puede interactuar directamente con ese objeto usando la propiedad `prototype`, en este ejemplo hemos declarado el método `start()`  de nuestro `Car.`
+Como se puede observar en el ejemplo de la función, se puede interactuar directamente con ese objeto usando la propiedad `prototype`, en este ejemplo hemos declarado el método `start()` de nuestro `Car.`
 
 Con la sintaxis `class`, la implementación está escondida de nosotros, pero está ocurriendo exactamente el mismo proceso.
 
@@ -125,7 +125,7 @@ class Car {...}
 const bmw = new Car("BMW");
 const bugatti = new Car("Bugatti");
 
-bmw.start() // comenzando car de la marca BMW 
+bmw.start() // comenzando car de la marca BMW
 bugatti.start() // comenzando car de la marca BMW  Bugatti
 ```
 
@@ -153,7 +153,7 @@ Por lo tanto no importa donde el `[[Prototype]] chain` encuentre a la función, 
 
 Ya sabemos como javascript encuentra un método o propiedad en el `[[Prototype]] chain` , pero ¿Cuando termina este comportamiento?
 
-Hay una clase que técnicamente es la clase original llamada `Object`  (con O mayúscula) y tiene su propio `prototype object`, al cual todos los objetos de javascript están conectados, directa o indirectamente a este objeto a través del `[[Prototype]] chain.`
+Hay una clase que técnicamente es la clase original llamada `Object` (con O mayúscula) y tiene su propio `prototype object`, al cual todos los objetos de javascript están conectados, directa o indirectamente a este objeto a través del `[[Prototype]] chain.`
 
 Este `objeto` tiene una colección de métodos y propiedades que podrían ser familiares:
 
@@ -201,8 +201,8 @@ class Ferrari extends Car {
 }
 
 const ferrari = new Ferrari("Red")
-ferrari.start() // Comenzando el car de brand ferrari 
-console.printColor() // Este ferrari es de color rojo 
+ferrari.start() // Comenzando el car de brand ferrari
+console.printColor() // Este ferrari es de color rojo
 ```
 
 Probablemente estás tentando a pensar que extendiendo la `class Car`, estas también creando una copia de todos sus métodos y propiedades y agregándole a `Ferrari`. Pero no, estamos es realizando una conexión entre los objetos.
@@ -236,7 +236,7 @@ function Ferrari(color) {
 }
 
 // Object.create Crea un objeto vacio y lo conecta a un objeto
-// Se conecta paso 1 y paso 2 llamando new 
+// Se conecta paso 1 y paso 2 llamando new
 Ferrari.prototype = Object.create(Car.prototype)
 
 Ferrari.prototype.printColor = function () {
@@ -245,7 +245,7 @@ Ferrari.prototype.printColor = function () {
 
 const ferrari = new Ferrari("Red")
 ferrari.start() // comenzando car de la brand ferrari
-console.printColor() // Este ferrari es rojo 
+console.printColor() // Este ferrari es rojo
 ```
 
 ## Classical OOP vs Prototypal
@@ -320,7 +320,7 @@ ferrari.start = function () {
 }
 
 ferrari.start()
-// Comenzado el car de la brand Ferrari 
+// Comenzado el car de la brand Ferrari
 // FERRARI BABY!!!
 ```
 
@@ -351,7 +351,7 @@ class Ferrari {
 
 const ferrari = new Ferrari()
 
-ferrari.start() // Comenzado el car de la brand Ferrari 
+ferrari.start() // Comenzado el car de la brand Ferrari
 ferrari.started // true
 ```
 

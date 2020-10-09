@@ -1,10 +1,10 @@
 ---
 title: Prototype
-featuredImage: props.png
+featuredImage: prototype.png
 date: "2020-07-24"
 ---
 
-*Colaboration by [Gerardo Leal](https://www.linkedin.com/in/gdlm91/)*  
+_Colaboration by [Gerardo Leal](https://www.linkedin.com/in/gdlm91/)_
 
 ## Classes in JavaScript
 
@@ -262,7 +262,7 @@ In classical OOP, every object created also receives a copy of the methods and p
 
 With prototypal OOP, objects don't get a copy but rather a link to another object that already has the implementation, and relies on "behavior delegation" to achieve the inheritance effect.
 
-### You can add methods and properties to prototypes in runtime 
+### You can add methods and properties to prototypes in runtime
 
 In classical OOP, you can't add more properties or methods to a class in runtime. It all happens when you write and compile your code.
 

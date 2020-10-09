@@ -1,6 +1,6 @@
 ---
 title: El termino `this`
-featuredImage: state.png
+featuredImage: this-es.png
 date: "2020-07-20"
 ---
 

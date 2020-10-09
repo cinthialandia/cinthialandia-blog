@@ -1,6 +1,6 @@
 ---
 title: Functional and Class component
-featuredImage: react-components.png
+featuredImage: components.png
 date: "2020-05-18"
 ---
 

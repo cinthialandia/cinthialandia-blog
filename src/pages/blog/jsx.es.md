@@ -1,6 +1,6 @@
 ---
 title: JSX
-featuredImage: hooks.png
+featuredImage: jsx-es.png
 date: "2020-06-28"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: The this keyword
-featuredImage: state.png
+featuredImage: this.png
 date: "2020-07-20"
 ---
 

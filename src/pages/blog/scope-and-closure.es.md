@@ -1,6 +1,6 @@
 ---
 title: JavaScript Scope y closure
-featuredImage: hooks.png
+featuredImage: scope-es.png
 date: "2020-07-09"
 ---
 

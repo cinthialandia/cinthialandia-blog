@@ -1,6 +1,6 @@
 ---
 title: Control Flow statements (bucles)
-featuredImage: hooks.png
+featuredImage: loops-es.png
 date: "2020-07-02"
 ---
 

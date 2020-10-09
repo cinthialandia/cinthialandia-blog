@@ -1,6 +1,6 @@
 ---
 title: JavaScript Scope and closure
-featuredImage: hooks.png
+featuredImage: scope.png
 date: "2020-07-09"
 ---
 
@@ -78,114 +78,112 @@ The building represents our program's nested Scope rule set. The first floor of 
 
 You resolve `declaration expression` and `execute expression` by looking on your current floor, and if you don't find it, taking the elevator to the next floor, looking there, then the next, and so on. Once you get to the top floor (the global Scope), you either find what you're looking for, or you don't. But you have to stop regardless. It is important to know that the scope works just looking from bottom to top and not backward.
 
-## Special case with var 
+## Special case with var
 
 ```js
 function hi(condition) {
-  let name = 'Cinthia';
+  let name = "Cinthia"
   if (condition) {
-    let name = 'Gerardo';
-    
-    console.log(`Hi ${name}`); // 'Hi Gerardo'
+    let name = "Gerardo"
+
+    console.log(`Hi ${name}`) // 'Hi Gerardo'
   }
-  
+
   console.log(name) // 'Cinthia'
 }
 
-hi(true);
+hi(true)
 ```
 
 ```js
 function hi(condition) {
-  var name = 'Cinthia';
+  var name = "Cinthia"
   if (condition) {
-    var name = 'Gerardo'; 
-    
-    console.log(`Hi ${name}`);// 'Hi Gerardo'
+    var name = "Gerardo"
+
+    console.log(`Hi ${name}`) // 'Hi Gerardo'
   }
-  
+
   console.log(name) // 'Gerardo'
 }
 
-hi(true);
+hi(true)
 ```
 
-In this example, we have the same exercise but using different variables, in the first case we are using `let` and in the second we are using `var `, and even having the same example we have different results, why is that? And here we can see something interesting about the `var` behavior in scopes. `let` and `const` are declared at the block or key level but `var` is declared at the function level.
+In this example, we have the same exercise but using different variables, in the first case we are using `let` and in the second we are using `var`, and even having the same example we have different results, why is that? And here we can see something interesting about the `var` behavior in scopes. `let` and `const` are declared at the block or key level but `var` is declared at the function level.
 
-As the first example and the second, we declared a function `hi` with a variable with `cinthia` value and a condition that if is true it will assign the variable name the value `gerardo` and will print a message with the value name, outside of this condition there is another console.log that print another value name and finally the function is invoked. 
+As the first example and the second, we declared a function `hi` with a variable with `cinthia` value and a condition that if is true it will assign the variable name the value `gerardo` and will print a message with the value name, outside of this condition there is another console.log that print another value name and finally the function is invoked.
 
 In out first exercise, we have the first console.log printing `Hi gerardo` that was assigned for our condition and both has the result, but when observe the second console.log that is declared as a function level, the first example prints `cinthia` and the second one `gerardo`, why is this happening? So the second variable is declared at the function level and not at the condition, causing that when assigning values, name is reassigned with another value in the condition instead of creating a new variable.
 
-## Closure 
+## Closure
 
-Closure is when a function “remembers” its lexical scope even when the function is executed outside that lexical scope. 
+Closure is when a function “remembers” its lexical scope even when the function is executed outside that lexical scope.
 
 ```js
 function somenthing(cb) {
-  setTimeout(cb, 3000); // walter
+  setTimeout(cb, 3000) // walter
 }
 
-(function() {
-  const name = 'walter';
-  
+;(function () {
+  const name = "walter"
+
   somenthing(() => {
-    console.log(name);
+    console.log(name)
   })
-})();
+})()
 ```
 
 In this example, we have a function `something` that has a `setTimeout` with 3000 milliseconds and inside this function, we have a function with a variable, then inside this function with are executing the function `something` with the variable name, where the console will print the name `walter`, this is a case of closure because the function execution returns an arrow function that remembers and has access to the variable name even when if it's executed outside the scope where it was declared.
 
 ```js
-function createCounter () {
-  let count = 1;
-  
+function createCounter() {
+  let count = 1
+
   return function () {
-    count++;
-    
-    return count;
+    count++
+
+    return count
   }
 }
 
-let counter = createCounter();
+let counter = createCounter()
 
 console.log(counter()) // 2
 console.log(counter()) // 3
 console.log(counter()) // 4
 ```
 
-This is another example of closure, we have the function `createCounter` that has a `count` variable then returns a function that executes an addition to the counter returning that count, and outside the function, we are saving this function in a variable creating a function expression. We executed the function, called by the variable’s name and as we can see in the console, the first one returns the number 2 after that returns the number 3 and the latest returns the number 4. Why is this happening? Because we have a closure every time we execute the counter expression, this is returning the result of the count function addition because that function remembers their scope, and for that closure, that scope can’t die, so our counter remembers the number and still adds numbers until the program dies. 
+This is another example of closure, we have the function `createCounter` that has a `count` variable then returns a function that executes an addition to the counter returning that count, and outside the function, we are saving this function in a variable creating a function expression. We executed the function, called by the variable’s name and as we can see in the console, the first one returns the number 2 after that returns the number 3 and the latest returns the number 4. Why is this happening? Because we have a closure every time we execute the counter expression, this is returning the result of the count function addition because that function remembers their scope, and for that closure, that scope can’t die, so our counter remembers the number and still adds numbers until the program dies.
 
 ```js
-for (var i=1; i<=5; i++) {
-    setTimeout( function timer(){
-        console.log( i ); // 6 6 6 6 6
-    }, i*1000 );
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i) // 6 6 6 6 6
+  }, i * 1000)
 }
 ```
 
-Closure in loops, in this example that is really interesting and happened something different because is declared with the variable `var`. We have a for that is declared `i` equal to number one and our condition is `i` must be less or equal to 5 if this is not true adding one to `i` and as an expression we have a `setTimeout` that has a function that prints the value of `i`, every 1000 milliseconds. As you can see our console prints `6 6 6 6 6` instead of `1 2 3 4 5` because `var` is reassigned `i` in every loop. 
+Closure in loops, in this example that is really interesting and happened something different because is declared with the variable `var`. We have a for that is declared `i` equal to number one and our condition is `i` must be less or equal to 5 if this is not true adding one to `i` and as an expression we have a `setTimeout` that has a function that prints the value of `i`, every 1000 milliseconds. As you can see our console prints `6 6 6 6 6` instead of `1 2 3 4 5` because `var` is reassigned `i` in every loop.
 
 ## Immediately Invoked Function Expressions (IIFE)
 
-We can execute a function by adding another () on the end, like `(function foo(){ .. })().` The first enclosing ( ) pair makes the function an expression, and the second () executes the function. With this expression we create a local scope. 
+We can execute a function by adding another () on the end, like `(function foo(){ .. })().` The first enclosing ( ) pair makes the function an expression, and the second () executes the function. With this expression we create a local scope.
 
 ```js
-let name = "Cinthia";
+let name = "Cinthia"
 
-(function anotherName() {
-  let name = "Gerardo";
+;(function anotherName() {
+  let name = "Gerardo"
   console.log(name) // 'Gerardo'
-}) ();
+})()
 
 console.log(name) // 'Cinthia'
 ```
 
 In this example we have a variable declared and a function called `anotherName`, that is wrapping inside parentheses and two parentheses more at the end to be invoked immediately.
 
-
-
 ## References
 
 - https://www.freecodecamp.org/news/an-introduction-to-scope-in-javascript-cbd957022652/
-- You Don't Know JS: Scope & Closures:  Book by Kyle Simpson
+- You Don't Know JS: Scope & Closures: Book by Kyle Simpson

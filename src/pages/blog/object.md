@@ -1,6 +1,6 @@
 ---
 title: Objects in Javascript
-featuredImage: props.png
+featuredImage: objects.png
 date: "2020-07-28"
 ---
 

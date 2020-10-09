@@ -1,6 +1,6 @@
 ---
 title: Componentes funcionales y de clase
-featuredImage: react-components.png
+featuredImage: components-es.png
 date: "2020-05-18"
 ---
 
