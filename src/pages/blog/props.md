@@ -70,7 +70,7 @@ export default function Children({ title, content, information, sum }) {
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/props-one
+<!-- https://stackblitz.com/edit/props-one -->
 
 ### Props child to parent
 
@@ -122,7 +122,7 @@ export default function Children({ onChange }) {
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/two-props
+<!-- https://stackblitz.com/edit/two-props -->
 
 ## Props and spread syntax
 
@@ -181,7 +181,7 @@ In the component child `ChindrenTwo` we received the props object and rendered t
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/props-three
+<!-- https://stackblitz.com/edit/props-three -->
 
 ## Props with default value
 
@@ -224,7 +224,7 @@ export default function Children({ state = false }) {
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/props-four
+<!-- https://stackblitz.com/edit/props-four -->
 
 ### Another way to assign props by defect
 
@@ -245,7 +245,7 @@ Children.defaultProps = {
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/props-five
+<!-- https://stackblitz.com/edit/props-five -->
 
 ## Props and typescript
 
@@ -284,7 +284,7 @@ export default Children
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/props-one-typscrit
+<!-- https://stackblitz.com/edit/props-one-typscrit -->
 
 ### Props child to parent
 
@@ -316,7 +316,7 @@ export default Children
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/props-two-typescrit
+<!-- https://stackblitz.com/edit/props-two-typescrit -->
 
 ## Props and class components
 
@@ -383,7 +383,7 @@ export default Children
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/props-one-class
+<!-- https://stackblitz.com/edit/props-one-class -->
 
 ## Props and typescript in class components
 
@@ -419,4 +419,4 @@ export default Children
 
 ### Giving us as a result:
 
-https://stackblitz.com/edit/props-typscrit-class
+<!-- https://stackblitz.com/edit/props-typscrit-class -->

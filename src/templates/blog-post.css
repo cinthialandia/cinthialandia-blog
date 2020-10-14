@@ -3,13 +3,13 @@
   text-align: center;
 }
 
-.image-post {
-  text-align: center;
+.image-post img {
+  max-width: 100%;
+  height: auto;
 }
 
-.image-post img {
-  max-width: 600px;
-  height: auto;
+.image-post {
+  text-align: center;
 }
 
 .post-content {
