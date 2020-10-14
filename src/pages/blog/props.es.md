@@ -70,9 +70,7 @@ export default function Children({ title, content, information, sum }) {
 
 ### Dando como resultado
 
-![scope showed as a building](./one.jpg)
-
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/props-one?file=src/Children.js
+https://stackblitz.com/edit/props-one
 
 ### Props de hijos a padre
 
@@ -124,9 +122,7 @@ export default function Children({ onChange }) {
 
 ### Dando como resultado
 
-![scope showed as a building](./two.gif)
-
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/two-props?file=src/Children.js
+https://stackblitz.com/edit/two-props
 
 ## Props y spread sintaxis
 
@@ -185,9 +181,7 @@ En el componente hijo `ChildrenTwo` recibimos el objeto props y renderizamos los
 
 ### Dando como resultado
 
-![scope showed as a building](./three.jpg)
-
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/props-three?file=src/ChildrenTwo.js
+https://stackblitz.com/edit/props-three
 
 ## Props con valor por defecto
 
@@ -230,8 +224,7 @@ export default function Children({ state = false }) {
 
 ### Dando como resultado
 
-![scope showed as a building](./four.gif)
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/props-four?file=src%2FChildren.js
+https://stackblitz.com/edit/props-four
 
 ### Otra manera de asignar props por defecto
 
@@ -252,9 +245,7 @@ Children.defaultProps = {
 
 ### Dando como resultado
 
-![scope showed as a building](./five.gif)
-
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/props-five?file=src/Children.js
+https://stackblitz.com/edit/props-five
 
 ## Props y typescript
 
@@ -293,8 +284,7 @@ export default Children
 
 ### Dando como resultado
 
-![scope showed as a building](./six.jpg)
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/props-one-typscrit?file=Children.tsx
+https://stackblitz.com/edit/props-one-typscrit
 
 ### Props de hijos a padre
 
@@ -326,8 +316,7 @@ export default Children
 
 ### Dando como resultado
 
-I![scope showed as a building](./seven.gif)
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/props-two-typescrit?file=Children.tsx
+https://stackblitz.com/edit/props-two-typescrit
 
 ## Props y componentes de clases
 
@@ -393,8 +382,7 @@ export default Children
 ```
 
 Dando como resultado
-![scope showed as a building](./eigth.jpg)
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/props-one-class?file=src%2FChildren.js
+https://stackblitz.com/edit/props-one-class
 
 ## Props y typescript en componentes de clases
 
@@ -430,5 +418,4 @@ export default Children
 
 ### Dando como resultado
 
-![scope showed as a building](./nine.jpg)
-Si quieres ver el ejemplo en vivo podes entrar en este link https://stackblitz.com/edit/props-typscrit-class?file=Children.tsx
+https://stackblitz.com/edit/props-typscrit-class

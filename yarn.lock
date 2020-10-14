@@ -6288,6 +6288,13 @@ gatsby-remark-prismjs@^3.5.2:
     parse-numeric-range "^0.0.2"
     unist-util-visit "^1.4.1"
 
+gatsby-remark-stackblitz@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-stackblitz/-/gatsby-remark-stackblitz-0.1.0.tgz#b9c9a3e8ecf37accbe1f74258ad1f8dc97f7cbdd"
+  integrity sha512-4pNO6z7LMmjtTXBoDfCLCHmiz55FoE6CHT3OM3srFdsM+jznSgJNZz2RFtgOYtSLMoB/CjTUlSoI+eT3ujriEA==
+  dependencies:
+    unist-util-visit "^2.0.0"
+
 gatsby-source-filesystem@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.3.3.tgz#16a7be93c577da11137654cd04d4bcf0c73c1867"
