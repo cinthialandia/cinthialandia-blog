@@ -1,5 +1,5 @@
 ---
-title: Objetos en Javascript
+title: ¿Qué es un objeto en javascript? y cuales son sus metodos?
 featuredImage: objects-es.png
 date: "2020-07-28"
 ---

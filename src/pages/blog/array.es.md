@@ -1,5 +1,5 @@
 ---
-title: Arrays en Javascript
+title: ¿Qué son los arrays y cómo se usan en javascript?
 featuredImage: arrays-es.png
 date: "2020-07-28"
 ---

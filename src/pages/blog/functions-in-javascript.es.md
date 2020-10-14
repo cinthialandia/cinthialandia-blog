@@ -1,5 +1,5 @@
 ---
-title: Funciones en JavaScript
+title: ¿Qué son las funciones en javascript?
 featuredImage: functions-es.png
 date: "2020-07-06"
 ---

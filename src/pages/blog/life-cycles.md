@@ -1,5 +1,5 @@
 ---
-title: Life-cycle
+title: What are life cycles? and what are they used for in react?
 featuredImage: life-cycles.png
 date: "2020-06-03"
 ---

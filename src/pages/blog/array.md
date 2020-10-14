@@ -1,5 +1,5 @@
 ---
-title: Arrays in Javascript
+title: What are arrays and how are they used in javascript?
 featuredImage: arrays.png
 description: learn how arrays work in javascript
 date: "2020-07-28"

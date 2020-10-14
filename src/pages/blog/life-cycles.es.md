@@ -1,5 +1,5 @@
 ---
-title: Ciclos de vida
+title: ¿Qué son los ciclos de vida? y para que se usan en react?
 featuredImage: life-cycles-es.png
 date: "2020-06-03"
 ---

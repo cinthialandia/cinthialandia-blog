@@ -1,5 +1,5 @@
 ---
-title: El termino `this`
+title: ¿Qué es this en javascript? y ¿Cuales son sus reglas?
 featuredImage: this-es.png
 date: "2020-07-20"
 ---

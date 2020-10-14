@@ -1,5 +1,5 @@
 ---
-title: Estado (state)
+title: ¿Que es el estado en react? ¿Y cómo usarlo?
 featuredImage: state.png
 date: "2020-05-29"
 ---

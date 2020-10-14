@@ -1,5 +1,5 @@
 ---
-title: Forms controlled inputs
+title: How to create controlled inputs in react? and why is it a good practice?
 featuredImage: input-controlled.png
 date: "2020-06-29"
 ---

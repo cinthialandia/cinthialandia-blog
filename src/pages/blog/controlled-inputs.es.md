@@ -1,5 +1,5 @@
 ---
-title: Forms Inputs controlados
+title: ¿Cómo crear inputs controlados en react? y ¿por qué son una buena practica?
 featuredImage: input-controlled-es.png
 date: "2020-06-29"
 ---

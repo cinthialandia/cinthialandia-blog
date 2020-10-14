@@ -1,5 +1,5 @@
 ---
-title: Variables y tipos en JavaScript
+title: ¿Qué son las variables y cuáles son sus tipos en javascript?
 featuredImage: variables-es.png
 date: "2020-06-30"
 ---

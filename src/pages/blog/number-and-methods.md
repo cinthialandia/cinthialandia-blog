@@ -1,5 +1,5 @@
 ---
-title: Number and methods
+title: What is the object number in javascript? and what are their methods?
 featuredImage: numbers.png
 date: "2020-07-02"
 ---

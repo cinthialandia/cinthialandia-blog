@@ -1,5 +1,5 @@
 ---
-title: Control Flow statements
+title: What are the control flow statements? and how to use them in javascript?
 featuredImage: loops.png
 date: "2020-07-02"
 ---

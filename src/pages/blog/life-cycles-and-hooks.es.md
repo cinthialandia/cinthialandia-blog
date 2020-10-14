@@ -1,5 +1,5 @@
 ---
-title: Ciclos de vida y Hooks
+title: ¿Cuáles son los nuevos hooks que se utilizan para los ciclos de vida? y ¿Como usarlos en react?
 featuredImage: life-cycles-and-hooks-es.png
 date: "2020-06-21"
 ---

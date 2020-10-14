@@ -1,5 +1,5 @@
 ---
-title: Prototype
+title: ¿Qué es prototype en javascript? y ¿cómo entender los conceptos más importantes y básicos?
 featuredImage: prototype.png
 date: "2020-07-24"
 ---

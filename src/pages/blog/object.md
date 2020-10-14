@@ -1,5 +1,5 @@
 ---
-title: Objects in Javascript
+title: What is an object in javascript? and what are their methods?
 featuredImage: objects.png
 date: "2020-07-28"
 ---

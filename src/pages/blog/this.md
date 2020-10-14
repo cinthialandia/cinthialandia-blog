@@ -1,5 +1,5 @@
 ---
-title: The this keyword
+title: What is this in javascript? and what are their rules?
 featuredImage: this.png
 date: "2020-07-20"
 ---

@@ -1,5 +1,5 @@
 ---
-title: String and methods
+title: What are strings in javascript? and what are their most common methods?
 featuredImage: strings.png
 date: "2020-07-03"
 ---

@@ -1,5 +1,5 @@
 ---
-title: JSX
+title: ¿Qué es jsx? y ¿Como usarlo en react?
 featuredImage: jsx-es.png
 date: "2020-06-28"
 ---

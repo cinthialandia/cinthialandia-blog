@@ -1,5 +1,5 @@
 ---
-title: Hooks
+title: ¿Qué son los hooks? ¿Para qué se utilizan en react?
 featuredImage: hooks.png
 date: "2020-06-01"
 ---
@@ -32,7 +32,7 @@ Para mas información sobre componentes funcionales y estado, [aquí](/es/blog/s
 
 ## Hooks y ciclos de vida
 
-Hooks nos trae una nueva API para el manejo de los ciclos de vida, llamados `useEffect`, que sería la combinación de los ciclos de vida `componentDidMount`, `componentDidUpdate`,  y `componentWillUnmountut` utilizados en componentes de clases.
+Hooks nos trae una nueva API para el manejo de los ciclos de vida, llamados `useEffect`, que sería la combinación de los ciclos de vida `componentDidMount`, `componentDidUpdate`, y `componentWillUnmountut` utilizados en componentes de clases.
 
 Para mas información sobre componentes funcionales y ciclos de vida, [aquí](/es/blog/life-cyles-and-hooks/).
 

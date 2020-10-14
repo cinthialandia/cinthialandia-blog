@@ -1,5 +1,5 @@
 ---
-title: Control Flow statements (bucles)
+title: ¿Qué son los control flow statements (bucles) en javascript? y como se utilizan?
 featuredImage: loops-es.png
 date: "2020-07-02"
 ---

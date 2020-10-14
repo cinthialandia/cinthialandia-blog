@@ -1,5 +1,5 @@
 ---
-title: Life-cycle and Hooks
+title: What are the new hooks used for the life cycle? and how to use them in react?
 featuredImage: life-cycles-and-hooks.png
 date: "2020-06-21"
 ---

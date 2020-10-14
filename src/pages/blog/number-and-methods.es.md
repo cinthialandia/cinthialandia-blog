@@ -1,5 +1,5 @@
 ---
-title: Número y sus métodos
+title: ¿Que es el objeto numéro en javascript? y  ¿Cuales son tus métodos?
 featuredImage: numbers-es.png
 date: "2020-07-02"
 ---

@@ -1,5 +1,5 @@
 ---
-title: Hooks
+title: What are hooks? and What are they used for in react?
 featuredImage: hooks.png
 date: "2020-06-01"
 ---

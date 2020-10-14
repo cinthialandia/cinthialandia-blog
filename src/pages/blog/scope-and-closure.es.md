@@ -1,5 +1,5 @@
 ---
-title: JavaScript Scope y closure
+title: ¿Qué es closure y scope en javascript?
 featuredImage: scope-es.png
 date: "2020-07-09"
 ---

@@ -1,5 +1,5 @@
 ---
-title: Variables and types in JavaScript
+title: What are variables and what are their types in javascript?
 featuredImage: variables.png
 date: "2020-06-30"
 ---

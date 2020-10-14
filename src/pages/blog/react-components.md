@@ -1,5 +1,5 @@
 ---
-title: Functional and Class component
+title: What are the functional and class components? and what is the difference between them in react?
 featuredImage: components.png
 date: "2020-05-18"
 ---

@@ -1,5 +1,5 @@
 ---
-title: String y sus metodos
+title: ¿Qué son strings en javascript? y ¿cuáles son sus métodos más comunes?
 featuredImage: strings-es.png
 date: "2020-07-03"
 ---

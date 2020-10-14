@@ -1,5 +1,5 @@
 ---
-title: Componentes funcionales y de clase
+title: ¿Qué son los componentes funcionales y de clase? y ¿Cual es la diferencia entre los dos en react?
 featuredImage: components-es.png
 date: "2020-05-18"
 ---

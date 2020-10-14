@@ -1,5 +1,5 @@
 ---
-title: JSX
+title: What is jsx? and how to use it in react?
 featuredImage: jsx.png
 date: "2020-06-28"
 ---

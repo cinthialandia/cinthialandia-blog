@@ -1,5 +1,5 @@
 ---
-title: Prototype
+title: What is prototype in javascript? and how to understand the most important and basic concept?
 featuredImage: prototype.png
 date: "2020-07-24"
 ---
