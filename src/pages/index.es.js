@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { graphql } from "gatsby"
+import SEO from "../components/seo"
 import Layout from "../components/layout"
 import Post from "../components/Post"
 import "./index.scss"
@@ -18,6 +19,7 @@ import memobile from "./img/me-mobile.jpg"
 export default function Home({ data }) {
   return (
     <Layout lang="es">
+      <SEO title="Hola Mundo!" lang="es" />
       <div>
         <div className="index-container-bio">
           <div className="bio-img">

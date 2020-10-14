@@ -5,8 +5,22 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Cinthialandia`,
+    description: `cinthia valero personal page, portfolio and blog`,
+    author: `Cinthia Valero`,
+    keywords: [
+      `cinthia`,
+      `blog`,
+      `portfolio`,
+      `react`,
+      `typescript`,
+      `javascript`,
+      `css`,
+      `portafolio`,
+    ],
+    siteUrl: `https://cinthialandia.com/`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

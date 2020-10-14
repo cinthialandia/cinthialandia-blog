@@ -1,6 +1,7 @@
 ---
 title: Arrays in Javascript
 featuredImage: arrays.png
+description: learn how arrays work in javascript
 date: "2020-07-28"
 ---
 
