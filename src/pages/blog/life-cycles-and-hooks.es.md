@@ -1,6 +1,6 @@
 ---
 title: Ciclos de vida y Hooks
-featuredImage: life-cycles-and-hooks.png
+featuredImage: life-cycles-and-hooks-es.png
 date: "2020-06-21"
 ---
 
