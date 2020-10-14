@@ -6,8 +6,11 @@ import "./blog-post.css"
 
 export default function BlogPost({ data, location }) {
   const post = data.markdownRemark
-  const seoImage = post.frontmatter.image
-    ? post.frontmatter.image.childImageSharp.resize
+  const seoImage = post.frontmatter.featuredImage
+    ? post.frontmatter.featuredImage.childImageSharp.resize
+    : null
+  const blogImage = post.frontmatter.featuredImage
+    ? post.frontmatter.featuredImage.childImageSharp.fluid
     : null
   return (
     <Layout lang={post.fields.langKey}>
@@ -21,11 +24,7 @@ export default function BlogPost({ data, location }) {
         <div className="blog-page-posts">
           <h1 className="title-post">{post.frontmatter.title}</h1>
           <div className="image-post">
-            {post.frontmatter.featuredImage && (
-              <img
-                src={post.frontmatter.featuredImage.childImageSharp.fluid.src}
-              ></img>
-            )}
+            {blogImage && <img src={blogImage.src} alt="featured"></img>}
           </div>
           <div
             className="post-content"
