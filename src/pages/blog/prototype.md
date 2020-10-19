@@ -1,6 +1,6 @@
 ---
 title: What is prototype in javascript? and how to understand the most important and basic concept?
-featuredImage: prototype.png
+featuredImage: prototype-img.png
 date: "2020-07-24"
 ---
 
