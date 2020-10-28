@@ -13,8 +13,8 @@ import Layout from "../components/layout"
 import Post from "../components/Post"
 import "./index.scss"
 import RepositorySmall from "../components/repositorySmall"
-import medesktop from "./img/me-desktop.jpg"
-import memobile from "./img/me-mobile.jpg"
+import medesktop from "./img/me-desktop.jpeg"
+import memobile from "./img/me-mobile.jpeg"
 
 export default function Home({ data }) {
   return (
